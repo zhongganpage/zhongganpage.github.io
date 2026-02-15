@@ -54,6 +54,42 @@ figcaption {
     padding-top: 8px;
 }
 /* remove the old border-right */
+
+/* New figure set – independent styling */
+.new-figure-set {
+  max-width: 1400px;        /* different width */
+  background: #f0f0f0;      /* light grey background */
+  border: 2px dashed #333;   /* dashed border */
+}
+
+.new-figure-set .image-row {
+  display: flex;
+  gap: 20px;                 /* larger gap between images */
+  justify-content: center;
+}
+
+.new-figure-set .subfigure {
+  flex: 0 0 40%;             /* each takes 30% of row */
+  background: white;
+  padding: 10px;
+}
+
+.new-figure-set .subfigure img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;        /* rounded corners */
+}
+
+.new-figure-set figcaption {
+  font-size: 1.2rem;
+  font-style: italic;
+  text-align: center;
+  border-top: none;          /* remove top border */
+  color: #555;
+}
+
+
+  
 </style>
 
       
@@ -128,7 +164,7 @@ figcaption {
 
 <!--RESUME-->
           <div id="figures" class="w3-container w3-margin-top-15-percent w3-cursive">
-            <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">Recent figures</h2>
+            <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">Recent figures on leaf venation pattern modelling</h2>
             <div class="w3-container w3-margin-top-2 w3-cursive">
 
            <!--PULICATIONS SECTION-->
@@ -168,6 +204,56 @@ figcaption {
 
 
 
+
+
+
+
+<!--RESUME-->
+          <div id="figures2" class="w3-container w3-margin-top-15-percent w3-cursive">
+            <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">Recent figures on homogenization of vertically oscillating Neumann datum</h2>
+            <div class="w3-container w3-margin-top-2 w3-cursive">
+
+           <!--PULICATIONS SECTION-->
+           <div class="w3-container w3-margin-top-2 w3-cursive">
+
+          
+
+
+<figure class="new-figure-set">
+  <!-- your new subfigures and caption -->
+
+
+  <div class="image-row">
+        <div class="subfigure">
+            <img src="graphequ.png" alt="A graphical illustration of the PDE">
+        </div>
+        <div class="subfigure">
+            <img src="figforgraph.png" alt="midll">
+        </div>
+    </div>
+
+    <!-- caption -->
+    <figcaption>
+        <strong>Left:</strong> A graphical illustration of the PDE to be homogenized; 
+        <strong>Middle:</strong> The small scale is \(\varepsilon=1/2^5\). The initial data is \(2x_1\) and the Dirichlet boundary condition is \(2x_1+2\textup{arctan}(t)\); 
+      <strong>Right:</strong> The graphs of the restriction of \(u^\varepsilon\) to the boundary \(\{x_1=0\}\) at integer times from 1 to 9. The colors represent the value of $\pt_1u$. One can observe that 
+      there are already hysteretic pinning phenomenon for positive \(\varepsilon\).
+    </figcaption>
+
+  
+</figure>
+
+
+
+
+
+
+
+
+
+
+
+             
 
             
           <!--RESUME-->
