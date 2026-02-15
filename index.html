@@ -15,6 +15,9 @@
     <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
 <style>
 /* Simple reset and figure styling */
+
+
+  
 body {
     margin: 20px;
     font-family: sans-serif;
@@ -27,6 +30,9 @@ figure {
     padding: 10px;
     background: #fafafa;
 }
+
+
+  
 .image-row {
     display: flex;
     flex-wrap: wrap;
@@ -102,13 +108,16 @@ figcaption {
 }
 
 .new-figure-set .subfigure.small {
-  flex: 0 0 30%;   /* occupies 20% of row width */
+  flex: 0 0 35%;   /* occupies 20% of row width */
 }
 .new-figure-set .subfigure.medium {
-  flex: 0 0 60%;
+  flex: 0 0 65%;
 }
 /* ensure total ≤ 100% (here 20+40+30 = 90%, leaving 10% gap if any) */
 
+ figure + figure {
+      margin-top: 30px;
+    }
 
   
 </style>
@@ -226,8 +235,6 @@ figcaption {
 
 
 
-
-
 <figure class="new-figure-set">
   <!-- your new subfigures and caption -->
 
@@ -244,8 +251,8 @@ figcaption {
     <!-- caption -->
     <figcaption>
         <strong>Left:</strong> A graphical illustration of the PDE to be homogenized; 
-        <strong>Middle:</strong> The small scale is \(\varepsilon=1/2^5\). The initial data is \(2x_1\) and the Dirichlet boundary condition is \(2x_1+2\textup{arctan}(t)\); 
-      <strong>Right:</strong> The graphs of the restriction of \(u^\varepsilon\) to the boundary \(\{x_1=0\}\) at integer times from 1 to 9. The colors represent the value of $\pt_1u$. One can observe that 
+        <strong>Middle:</strong> The small scale is \(\varepsilon=1/2^5\). The initial data is \(2x_1\) and the Dirichlet boundary condition is \(2x_1+2\tan^{-1}(t)\); 
+      <strong>Right:</strong> The graphs of the restriction of \(u^\varepsilon\) to the boundary {\(x_1=0\)} at integer times from 1 to 9. The colors represent the value of \(\partial_1 u\). One can observe that 
       there are already hysteretic pinning phenomenon for positive \(\varepsilon\).
     </figcaption>
 
