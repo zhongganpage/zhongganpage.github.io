@@ -12,55 +12,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
     <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
-  <style>
-        /* Simple reset and figure styling */
-        body {
-            margin: 20px;
-            font-family: sans-serif;
-            line-height: 1.4;
-        }
-        figure {
-            max-width: 1400px;       /* optional, to control overall width */
-            margin: 0 auto;
-            border: 1px solid #ccc;  /* subtle border to visualise figure area */
-            padding: 10px;
-            background: #fafafa;
-        }
-        .image-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between; /* no extra gaps between items */
-            gap: 0;                /* ensure no gap between flex items */
-        }
-        .subfigure {
-            flex: 0 0 20%;          /* exactly 25% width, no grow/shrink */
-            box-sizing: border-box;
-            text-align: center;     /* centers the image inside */
-            padding: 0;             /* no internal spacing */
-        }
-        .subfigure img {
-            width: 70%;             /* mimics .7\linewidth inside subfigure */
-            height: auto;
-            display: block;
-            margin: 0 auto;         /* centers image in case container is wider */
-            border: 1px solid #ddd;  /* optional border to see image bounds */
-        }
-        figcaption {
-            margin-top: 15px;
-            font-size: 0.9rem;
-            text-align: left;
-            color: #333;
-            border-top: 1px solid #ccc;
-            padding-top: 8px;
-        }
-        /* optional: add a little visual separation for subfigures */
-        .subfigure {
-            border-right: 1px solid #eee; /* just for demonstration, remove if unwanted */
-        }
-        .subfigure:last-child {
-            border-right: none;
-        }
-    </style>
+<style>
+/* Simple reset and figure styling */
+body {
+    margin: 20px;
+    font-family: sans-serif;
+    line-height: 1.4;
+}
+figure {
+    max-width: 1400px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background: #fafafa;
+}
+.image-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;                /* space between subfigures */
+}
+.subfigure {
+    flex: 1 1 0;               /* each grows equally, width determined by gap */
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0;
+    min-width: 120px;          /* optional: prevent too small on narrow screens */
+}
+.subfigure img {
+    width: 100%;                /* now fills the subfigure container */
+    height: auto;
+    display: block;
+    border: 1px solid #ddd;     /* optional border */
+}
+figcaption {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    text-align: left;
+    color: #333;
+    border-top: 1px solid #ccc;
+    padding-top: 8px;
+}
+/* remove the old border-right */
+</style>
 
       
   </head>
