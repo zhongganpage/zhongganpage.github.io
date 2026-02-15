@@ -1,1 +1,44 @@
-<h2>Leaf Vein Networks</h2>\n<div class='leaf-vein-networks'>\n    <div class='subfigure'>\n        <img src='path/to/figure1.png' alt='Figure 1 description'/>\n        <p>Caption for figure 1</p>\n    </div>\n    <div class='subfigure'>\n        <img src='path/to/figure2.png' alt='Figure 2 description'/>\n        <p>Caption for figure 2</p>\n    </div>\n    <div class='subfigure'>\n        <img src='path/to/figure3.png' alt='Figure 3 description'/>\n        <p>Caption for figure 3</p>\n    </div>\n    <div class='subfigure'>\n        <img src='path/to/figure4.png' alt='Figure 4 description'/>\n        <p>Caption for figure 4</p>\n    </div>\n</div>\n<style>\n.leaf-vein-networks {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-around;\n}  \n.subfigure {\n    flex: 1 1 200px;\n    margin: 10px;\n}  \n.subfigure img {\n    max-width: 100%;\n    height: auto;\n}\n</style>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Title</title>
+</head>
+<body>
+    <!-- Other sections here -->
+    
+            <!--FIGURE: LEAF VEIN NETWORKS SECTION-->
+            <div class="w3-container w3-margin-top-15-percent w3-cursive">
+              <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">LEAF VEIN NETWORKS</h2>
+              <figure style="max-width: 1000px; margin: 20px auto; border: 1px solid #ccc; padding: 10px; background: #fafafa;">
+                <!-- row of four subfigures -->
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0;">
+                  <div style="flex: 0 0 25%; box-sizing: border-box; text-align: center; padding: 0;">
+                    <img src="figures/truleaf.jpg" alt="Leaf veins of Ampelocera ruizii" style="width: 70%; height: auto; display: block; margin: 0 auto; border: 1px solid #ddd;">
+                  </div>
+                  <div style="flex: 0 0 25%; box-sizing: border-box; text-align: center; padding: 0;">
+                    <img src="figures/aperiodicmodel.jpeg" alt="Reticulate Z^2-periodic network (full rank)" style="width: 70%; height: auto; display: block; margin: 0 auto; border: 1px solid #ddd;">
+                  </div>
+                  <div style="flex: 0 0 25%; box-sizing: border-box; text-align: center; padding: 0;">
+                    <img src="figures/3.png" alt="Non-reticulate Z^2-periodic network (zero effective tensor)" style="width: 70%; height: auto; display: block; margin: 0 auto; border: 1px solid #ddd;">
+                  </div>
+                  <div style="flex: 0 0 25%; box-sizing: border-box; text-align: center; padding: 0;">
+                    <img src="figures/4.png" alt="Non-reticulate Z^2-periodic network (rank 1 effective tensor)" style="width: 70%; height: auto; display: block; margin: 0 auto; border: 1px solid #ddd;">
+                  </div>
+                </div>
+                
+                <!-- caption -->
+                <figcaption style="margin-top: 15px; font-size: 0.9rem; text-align: left; color: #333; border-top: 1px solid #ccc; padding-top: 8px;">
+                  <strong>Left:</strong> a picture of higher-order veins in a tropical forest tree, <em>Ampelocera ruizii</em>. 
+                  The picture is reproduced from (sack2013leaf), with permission from Wiley; 
+                  <strong>Middle left:</strong> a reticulate ℤ²-periodic network that has full rank effective tensor; 
+                  <strong>Middle right:</strong> a non-reticulate ℤ²-periodic network that has zero effective tensor; 
+                  <strong>Right:</strong> a non-reticulate ℤ²-periodic network that has rank 1 effective tensor.
+                </figcaption>
+              </figure>
+            </div>
+    
+    <!--RESUME--> 
+    
+    <!-- Other sections here -->
+</body>
+</html>
