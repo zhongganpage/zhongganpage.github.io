@@ -101,6 +101,14 @@ figcaption {
     padding-top: 8px;
 }
 
+.new-figure-set .subfigure.small {
+  flex: 0 0 30%;   /* occupies 20% of row width */
+}
+.new-figure-set .subfigure.medium {
+  flex: 0 0 60%;
+}
+/* ensure total ≤ 100% (here 20+40+30 = 90%, leaving 10% gap if any) */
+
 
   
 </style>
@@ -177,7 +185,7 @@ figcaption {
 
 <!--RESUME-->
           <div id="figures" class="w3-container w3-margin-top-15-percent w3-cursive">
-            <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">Recent figures on leaf venation pattern modelling</h2>
+            <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">Recent figures</h2>
             <div class="w3-container w3-margin-top-2 w3-cursive">
 
            <!--PULICATIONS SECTION-->
@@ -220,27 +228,15 @@ figcaption {
 
 
 
-
-<!--RESUME-->
-          <div id="figures2" class="w3-container w3-margin-top-15-percent w3-cursive">
-            <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">Recent figures on homogenization of vertically oscillating Neumann datum</h2>
-            <div class="w3-container w3-margin-top-2 w3-cursive">
-
-           <!--PULICATIONS SECTION-->
-           <div class="w3-container w3-margin-top-2 w3-cursive">
-
-          
-
-
 <figure class="new-figure-set">
   <!-- your new subfigures and caption -->
 
 
   <div class="image-row">
-        <div class="subfigure">
+        <div class="subfigure small">
             <img src="graphequ.png" alt="A graphical illustration of the PDE">
         </div>
-        <div class="subfigure">
+        <div class="subfigure medium">
             <img src="figforgraph.png" alt="midll">
         </div>
     </div>
