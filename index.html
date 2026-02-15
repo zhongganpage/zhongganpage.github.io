@@ -1,44 +1,270 @@
+
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Your Title</title>
-</head>
-<body>
-    <!-- Other sections here -->
-    
-            <!--FIGURE: LEAF VEIN NETWORKS SECTION-->
-            <div class="w3-container w3-margin-top-15-percent w3-cursive">
-              <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">LEAF VEIN NETWORKS</h2>
-              <figure style="max-width: 1000px; margin: 20px auto; border: 1px solid #ccc; padding: 10px; background: #fafafa;">
-                <!-- row of four subfigures -->
-                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0;">
-                  <div style="flex: 0 0 25%; box-sizing: border-box; text-align: center; padding: 0;">
-                    <img src="figures/truleaf.jpg" alt="Leaf veins of Ampelocera ruizii" style="width: 70%; height: auto; display: block; margin: 0 auto; border: 1px solid #ddd;">
-                  </div>
-                  <div style="flex: 0 0 25%; box-sizing: border-box; text-align: center; padding: 0;">
-                    <img src="figures/aperiodicmodel.jpeg" alt="Reticulate Z^2-periodic network (full rank)" style="width: 70%; height: auto; display: block; margin: 0 auto; border: 1px solid #ddd;">
-                  </div>
-                  <div style="flex: 0 0 25%; box-sizing: border-box; text-align: center; padding: 0;">
-                    <img src="figures/3.png" alt="Non-reticulate Z^2-periodic network (zero effective tensor)" style="width: 70%; height: auto; display: block; margin: 0 auto; border: 1px solid #ddd;">
-                  </div>
-                  <div style="flex: 0 0 25%; box-sizing: border-box; text-align: center; padding: 0;">
-                    <img src="figures/4.png" alt="Non-reticulate Z^2-periodic network (rank 1 effective tensor)" style="width: 70%; height: auto; display: block; margin: 0 auto; border: 1px solid #ddd;">
-                  </div>
-                </div>
-                
-                <!-- caption -->
-                <figcaption style="margin-top: 15px; font-size: 0.9rem; text-align: left; color: #333; border-top: 1px solid #ccc; padding-top: 8px;">
-                  <strong>Left:</strong> a picture of higher-order veins in a tropical forest tree, <em>Ampelocera ruizii</em>. 
-                  The picture is reproduced from (sack2013leaf), with permission from Wiley; 
-                  <strong>Middle left:</strong> a reticulate ℤ²-periodic network that has full rank effective tensor; 
-                  <strong>Middle right:</strong> a non-reticulate ℤ²-periodic network that has zero effective tensor; 
-                  <strong>Right:</strong> a non-reticulate ℤ²-periodic network that has rank 1 effective tensor.
-                </figcaption>
-              </figure>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zhonggan Huang personal website</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--Montserrat font-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
+  <style>
+        /* Simple reset and figure styling */
+        body {
+            margin: 20px;
+            font-family: sans-serif;
+            line-height: 1.4;
+        }
+        figure {
+            max-width: 1000px;       /* optional, to control overall width */
+            margin: 0 auto;
+            border: 1px solid #ccc;  /* subtle border to visualise figure area */
+            padding: 10px;
+            background: #fafafa;
+        }
+        .image-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* no extra gaps between items */
+            gap: 0;                /* ensure no gap between flex items */
+        }
+        .subfigure {
+            flex: 0 0 25%;          /* exactly 25% width, no grow/shrink */
+            box-sizing: border-box;
+            text-align: center;     /* centers the image inside */
+            padding: 0;             /* no internal spacing */
+        }
+        .subfigure img {
+            width: 70%;             /* mimics .7\linewidth inside subfigure */
+            height: auto;
+            display: block;
+            margin: 0 auto;         /* centers image in case container is wider */
+            border: 1px solid #ddd;  /* optional border to see image bounds */
+        }
+        figcaption {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            text-align: left;
+            color: #333;
+            border-top: 1px solid #ccc;
+            padding-top: 8px;
+        }
+        /* optional: add a little visual separation for subfigures */
+        .subfigure {
+            border-right: 1px solid #eee; /* just for demonstration, remove if unwanted */
+        }
+        .subfigure:last-child {
+            border-right: none;
+        }
+    </style>
+
+      
+  </head>
+  <body>   
+    <section>
+      <!-- MOBILE NAVIGATION -->
+      <div class="w3-container w3-padding-16 w3-border-bottom w3-hide-medium w3-hide-large">
+        <a href="#home" class="w3-bar-item w3-button w3-hover-none">CURRICULUM VITAE</a>
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="toggleNavigation()">&#9776;</a>
+      </div>
+      <div id="mobile-nav" class="w3-bar-block w3-hide w3-hide-large w3-hide-medium w3-sticky">
+        <a href="#about" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="toggleNavigation()">ABOUT</a>
+        <a href="#resume" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="toggleNavigation()">RESUME</a>
+        <a href="#contact" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="toggleNavigation()">CONTACT</a>
+      </div>
+
+      <!-- SOCIAL SECTION -->
+      <section class="image-section w3-quarter w3-fixed w3-padding-small">
+        <!--IMAGE/AVATAR-->
+        <img src="a.jpg" class="w3-circle w3-border w3-border-sand" style="border-width: 3px !important;"/>
+        <!--SCIAL NETWORK BUTTONS-->
+        <div id="about" class="w3-container w3-margin-top-15-percent w3-cursive w3-large">
+            <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;color: #ffffff" >ABOUT ME</h2>
+            <p class="w3-margin-top-1"> 
+             <span style="color: #ffffff">I am a 5th-year PhD student in the Department of Mathematics, University of Utah. My advisor is Prof. W. Feldman. I'm interested in homogenization theory, free boundary problems and shape optimization problems.   </span> 
+            </p>
+          </div>
+            <!--CONTACT SECTION-->
+         <div id="contact" class="w3-container w3-margin-top-15-percent w3-cursive">
+            <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;color: #ffffff">MY CONTACT DETAILS</h3>
+            <div class="w3-margin-top-2" style="font-weight: 500;">
+              <p><span style="color: #ffffff">Name: Zhonggan Huang</span> </p>
+              <p><span style="color: #ffffff">Address: 155 South 1400 East, JWB 319, Department of Mathematics, University of Utah, Salt Lake City, U.S.</span></p>
+              <p><span style="color: #ffffff">E-mail: zhonggan@math.utah.edu</span></p>
             </div>
+          </div>
+        <!--CV DOWNLOAD BUTTON-->
+        <div class="w3-container w3-padding-16">
+          <a href="./ZhongganHuang_CV_Jan112026.pdf" class="w3-amber w3-hover-amber w3-button w3-round-small w3-hover-deep-orange w3-padding-large" target="_blank" download="ZhongganHuang_CV_Jan112026.pdf">
+            <i data-feather="arrow-down" style="vertical-align: -0.35em;"></i>
+            <span class="w3-margin-left download-text">DOWNLOAD CV</span>
+          </a>
+        </div>
+      </section>
+
+      <!--CV CONTENT SECTION-->
+      <section class="w3-threequarter w3-padding-large w3-right">
+        <!--DESKTOP NAVIGATION-->
+        <div class="w3-container w3-padding-large w3-border-bottom w3-hide-small">
+          <a href="#home" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green">CURRICULUM VITAE</a>
+          <a href="#contact" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green w3-right w3-hide-small" style="border-width: 2px !important;" onclick="toggleNavigation()">CONTACT</a>
+          <a href="#resume" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green w3-right w3-hide-small" style="border-width: 2px !important;" onclick="toggleNavigation()">RESUME</a>
+          <a href="#about" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green w3-right w3-hide-small" style="border-width: 2px !important;" onclick="toggleNavigation()">ABOUT</a>
+        </div>
+        <div class="content-container w3-margin-top-2">
+          <!--HOME SECTION-->
+          <div id="home" class="home w3-container w3-margin-top-4 w3-cursive">
+            <p style="font-style: italic; font-size:x-large;"> 溯洄从之，道阻且长。溯游从之，宛在水中央。</p>
+            <h1> 黄忠淦 </h2>
+            <h2> Zhonggan Huang </h3>
+            <h3> PhD candidate </h4>
+            <h4> Department of Mathematics, University of Utah </h4>
+            <p></p>
+          </div>
+
+          <!--ABOUT SECTION-->
+        
+
+<!--figures-->
+
+<figure>
+    <!-- row of four subfigures -->
+    <div class="image-row">
+        <div class="subfigure">
+            <img src="figures/truleaf (3).jpg" alt="Leaf veins of Ampelocera ruizii">
+        </div>
+        <div class="subfigure">
+            <img src="figures/aperiodicmodel (3).jpeg" alt="Reticulate Z^2-periodic network (full rank)">
+        </div>
+        <div class="subfigure">
+            <img src="figures/3 (2).png" alt="Non-reticulate Z^2-periodic network (zero effective tensor)">
+        </div>
+        <div class="subfigure">
+            <img src="figures/4 (1).png" alt="Non-reticulate Z^2-periodic network (rank 1 effective tensor)">
+        </div>
+    </div>
+
+    <!-- caption -->
+    <figcaption>
+        <strong>Left:</strong> a picture of higher-order veins in a tropical forest tree, <em>Ampelocera ruizii</em>. 
+        The picture is reproduced from (sack2013leaf), with permission from Wiley; 
+        <strong>Middle left:</strong> a reticulate \(\mathbb{Z}^2\)-periodic network that has full rank effective tensor; 
+        <strong>Middle right:</strong> a non-reticulate \(\mathbb{Z}^2\)-periodic network that has zero effective tensor; 
+        <strong>Right:</strong> a non-reticulate \(\mathbb{Z}^2\)-periodic network that has rank 1 effective tensor.
+    </figcaption>
+</figure>
+
+
+
+
+            
+          <!--RESUME-->
+          <div id="resume" class="w3-container w3-margin-top-15-percent w3-cursive">
+            <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">RESUME</h2>
+            <div class="w3-container w3-margin-top-2 w3-cursive">
+
+           <!--PULICATIONS SECTION-->
+           <div class="w3-container w3-margin-top-2 w3-cursive">
+
+       
+  <h3 class="w3-border-amber">PREPRINTS</h3>
+  <!--SOFT SKILLS-->
+  <ul class="w3-ul" style="font-weight: 500;">
+
+      <li>
+      <b><font size="+1">
+        <a href="https://arxiv.org/abs/2508.08208">On the attainability of singular Wiener bound</a>
+      </font></b>
+      arXiv: 2508.08208
+    </li>
+
+    <li>
+      <b><font size="+1">
+        <a href="https://arxiv.org/abs/2505.17298">Homogenization of a vertical oscillating Neumann condition</a>
+      </font></b>
+      Joint with William Feldman, arXiv: 2505.17298
+    </li>
+
+  </ul>
+
+              
+              <h3 class="w3-border-amber">PUBLICATIONS</h3>
+              <!--SOFT SKILLS-->
+              <ul class="w3-ul" style="font-weight: 500;">
+
+   <li>
+      <b><font size="+1">
+        <a href="https://doi.org/10.1016/j.matpur.2026.103863">Regularity theory of a gradient degenerate Neumann problem</a>
+      </font></b>
+      Joint with William Feldman, Journal de Mathématiques Pures et Appliquées, Volume 209, May 2026, 103863
+    </li>
     
-    <!--RESUME--> 
-    
-    <!-- Other sections here -->
-</body>
+    <li>
+      <b><font size="+1">
+        <a href="https://arxiv.org/abs/2212.03701">Is mean curvature flow a gradient flow?</a>
+      </font></b>
+      arXiv: 2212.03701 (to appear in Proceedings of the American Mathematical Society)
+    </li>
+
+                
+  <li>
+  <b><font size="+1">
+      <a href="https://doi.org/10.1016/j.jde.2021.02.024">Homogenization of enhancing thin layers</a>
+    </font></b>
+  Journal of Differential Equations, Volume 282, 2021, Pages 330-369, ISSN 0022-0396
+</li>
+             
+             <h3 class="w3-border-amber">THESIS, NOTES, SLIDES AND VIDEOS</h3>
+            <!--CV DOWNLOAD BUTTON-->
+            <li><a href="./SingularWienerBound.pdf"  target="_blank" download="SingularWienerBound.pdf">[SLIDE] Attainability of the singular Wiener bound and leaf venation patterns, November 03 2025, WashU St. Louis
+             </a></li>
+             <li><a href="https://www.birs.ca/events/2024/5-day-workshops/24w5198/videos/watch/202408131630-Huang.html" target="_blank" >[VIDEO] Regularity theory of a gradient degenerate Neumann problem, in Oaxaca on August 13</a>
+             </li>
+             <li><a href="./slideonsignorini.pdf"  target="_blank" download="slideonsignorinitypeprob.pdf">[SLIDE] 一个类Signorini梯度退化问题的最优正则性: 10/05/2024 于南方科技大学
+             </a></li>
+             <li><a href="./ldpandgf.pdf"  target="_blank" download="大偏差原理与梯度流试讲.pdf">[SLIDE] 大偏差原理与梯度流试讲(On Large Deviation Principle and Gradient Flows): 11/17/2022 于西北大学
+             </a></li>
+             <li><a href="./Master_Degree_Thesis.pdf"  target="_blank" download="Topics_on_reaction-diffusion_equations_with_large_diffusion_rates_within_thin_components:_Master_Degree_Thesis.pdf">[Thesis] Topics on reaction-diffusion equations with large diffusion rates within thin components: Master Degree Thesis 2021
+             </a></li>
+             <li> <a href="./PDE_IN_SUSTECH.pdf"  target="_blank" download="Notes_on_partial_differential_equations:_2018-2019.pdf">[NOTE] Notes on partial differential equations: 2018-2019
+             </a></li>
+            </div>
+
+            <!---EDUCATION SECTION-->
+            <div class="w3-container w3-margin-top-2 w3-cursive">
+              <h3 class="w3-border-amber">MY EDUCATION</h3>
+                <h4>University of Utah, PhD student of Mathematics, Salt Lake City, U.S.</h4>
+                <p>August 2021 – Expected July 2026 </p>
+                <h4>Southern University of Science and Technology, Master of Mathematics, Shenzhen, China</h4>
+                <p>September 2019 – June 2021 </p>
+                <h4>Southern University of Science and Technology, Bachelor of Mathematics and Applied Mathematics , Shenzhen, China</h4>
+                <p>September 2015 – June 2019 </p>
+            </div>
+
+   
+
+     
+        <!--END OF CV SECTION-->
+      </section>      
+    </section>
+    <script>
+      // Function to toggle mobile navigation
+      function toggleNavigation() {
+        let nav = document.getElementById("mobile-nav");
+        if (nav.classList.contains('w3-show')) {
+          nav.classList.remove('w3-show');
+        } else { 
+          nav.classList.add('w3-show');
+        }
+      }
+    </script>
+    <script>
+      // Script to load feather icons
+      feather.replace()
+    </script>
+  </body>
 </html>
