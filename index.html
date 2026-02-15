@@ -56,36 +56,49 @@ figcaption {
 /* remove the old border-right */
 
 /* New figure set – independent styling */
+
+.new-figure-set .body {
+    margin: 20px;
+    font-family: sans-serif;
+    line-height: 1.4;
+}
+  
 .new-figure-set {
-  max-width: 1400px;        /* different width */
-  background: #f0f0f0;      /* light grey background */
-  border: 2px dashed #333;   /* dashed border */
+ max-width: 1400px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background: #fafafa;
 }
 
 .new-figure-set .image-row {
-  display: flex;
-  gap: 20px;                 /* larger gap between images */
-  justify-content: center;
+ display: flex;
+    flex-wrap: wrap;
+    gap: 10px;    
 }
 
 .new-figure-set .subfigure {
-  flex: 0 0 40%;             /* each takes 30% of row */
-  background: white;
-  padding: 10px;
+  flex: 1 1 0;               /* each grows equally, width determined by gap */
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0;
+    min-width: 120px;  
 }
 
 .new-figure-set .subfigure img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;        /* rounded corners */
+  width: 100%;                /* now fills the subfigure container */
+    height: auto;
+    display: block;
+    border: 1px solid #ddd;       /* rounded corners */
 }
 
 .new-figure-set figcaption {
-  font-size: 1.2rem;
-  font-style: italic;
-  text-align: center;
-  border-top: none;          /* remove top border */
-  color: #555;
+  margin-top: 15px;
+    font-size: 1.2rem;
+    text-align: left;
+    color: #333;
+    border-top: 1px solid #ccc;
+    padding-top: 8px;
 }
 
 
