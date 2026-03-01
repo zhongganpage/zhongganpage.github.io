@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
   <style>
-    /* 原有样式保持不变，仅添加少许调整 */
     body {
       margin: 20px;
       font-family: sans-serif;
@@ -106,7 +105,7 @@
 </head>
 <body>   
   <section>
-    <!-- 移动端导航 (更新为 HOME / RESEARCH) -->
+    <!-- 移动端导航 -->
     <div class="w3-container w3-padding-16 w3-border-bottom w3-hide-medium w3-hide-large">
       <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-none">CURRICULUM VITAE</a>
       <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="toggleNavigation()">&#9776;</a>
@@ -116,16 +115,27 @@
       <a href="javascript:void(0)" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="showPanel('research'); toggleNavigation();">RESEARCH</a>
     </div>
 
-    <!-- 左侧固定栏：添加 EDUCATION 区块 -->
+    <!-- 左侧固定栏（已按新要求调整） -->
     <section class="image-section w3-quarter w3-fixed w3-padding-small">
       <img src="a.jpg" class="w3-circle w3-border w3-border-sand" style="border-width: 3px !important;"/>
-      <!-- ABOUT ME -->
+
+      <!-- 新加：姓名、职位（头像下方，ABOUT ME上方） -->
+      <div class="w3-container w3-margin-top w3-cursive" style="color: #ffffff;">
+        <h1 style="color: #ffffff;">黄忠淦</h1>
+        <h2 style="color: #ffffff;">Zhonggan Huang</h2>
+        <h3 style="color: #ffffff;">PhD candidate</h3>
+        <h4 style="color: #ffffff;">Department of Mathematics, University of Utah</h4>
+        <p></p>
+      </div>
+
+      <!-- ABOUT ME 部分 -->
       <div id="about" class="w3-container w3-margin-top-15-percent w3-cursive w3-large">
         <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;color: #ffffff">ABOUT ME</h2>
         <p class="w3-margin-top-1"> 
           <span style="color: #ffffff">I am a 5th-year PhD student in the Department of Mathematics, University of Utah. My advisor is Prof. W. Feldman. I'm interested in homogenization theory, free boundary problems and shape optimization problems.</span> 
         </p>
       </div>
+
       <!-- CONTACT DETAILS -->
       <div id="contact" class="w3-container w3-margin-top-15-percent w3-cursive">
         <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;color: #ffffff">MY CONTACT DETAILS</h2>
@@ -135,7 +145,8 @@
           <p><span style="color: #ffffff">E-mail: zhonggan@math.utah.edu</span></p>
         </div>
       </div>
-      <!-- 新插入的 EDUCATION 区块 (从右侧移入) -->
+
+      <!-- EDUCATION 区块（原在右侧，现移入左侧） -->
       <div id="education-left" class="w3-container w3-margin-top-15-percent w3-cursive">
         <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;color: #ffffff">EDUCATION</h2>
         <div style="font-weight: 500; color: #ffffff;">
@@ -147,18 +158,24 @@
           <p style="margin-top: 0;">Sep 2015 – Jun 2019</p>
         </div>
       </div>
-      <!-- CV DOWNLOAD -->
+
+      <!-- CV 下载按钮 -->
       <div class="w3-container w3-padding-16">
         <a href="./CV_Zhonggan_20260301.pdf" class="w3-amber w3-hover-amber w3-button w3-round-small w3-hover-deep-orange w3-padding-large" target="_blank" download="CV_Zhonggan_20260301.pdf">
           <i data-feather="arrow-down" style="vertical-align: -0.35em;"></i>
           <span class="w3-margin-left download-text">DOWNLOAD CV</span>
         </a>
       </div>
+
+      <!-- 新加：诗句置于左边栏最底部（下载按钮下方） -->
+      <div class="w3-container w3-margin-top w3-cursive" style="color: #ffffff;">
+        <p style="font-style: italic; font-size:x-large; color: #ffffff;">溯洄从之，道阻且长。溯游从之，宛在水中央。</p>
+      </div>
     </section>
 
     <!-- 右侧动态面板 (仅 HOME / RESEARCH) -->
     <section class="w3-threequarter w3-padding-large w3-right">
-      <!-- 桌面导航栏 (HOME / RESEARCH) -->
+      <!-- 桌面导航栏 -->
       <div class="w3-container w3-padding-large w3-border-bottom w3-hide-small">
         <div class="w3-bar">
           <span class="w3-bar-item w3-hover-none w3-border-white" style="font-weight: 500;">CURRICULUM VITAE</span>
@@ -171,18 +188,10 @@
 
       <!-- 面板容器 -->
       <div class="content-container w3-margin-top-2">
-        <!-- HOME 面板 (包含原中文诗句 + 所有 figure) -->
+        <!-- HOME 面板 (已移除诗句及姓名，仅保留研究图示) -->
         <div id="home-panel" class="panel w3-container w3-margin-top-4 w3-cursive">
-          <!-- 原 home 内容 -->
-          <p style="font-style: italic; font-size:x-large;">溯洄从之，道阻且长。溯游从之，宛在水中央。</p>
-          <h1>黄忠淦</h1>
-          <h2>Zhonggan Huang</h2>
-          <h3>PhD candidate</h3>
-          <h4>Department of Mathematics, University of Utah</h4>
-          <p></p>
-
-          <!-- 插入两个 figure 集 (原 FIGURES 面板内容) -->
-          <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important; margin-top: 40px;">Recent figures</h2>
+          <!-- 注意：原来的诗句和姓名已移至左侧栏，此处不再重复 -->
+          <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">Recent figures</h2>
           <figure>
             <div class="image-row">
               <div class="subfigure"><img src="truleaf.jpg" alt="Leaf veins of Ampelocera ruizii"></div>
@@ -215,16 +224,14 @@
           </figure>
         </div>
 
-        <!-- RESEARCH 面板 (原 RESUME 内容，仅改名) -->
+        <!-- RESEARCH 面板 (原RESUME内容，仅改名) -->
         <div id="research-panel" class="panel w3-container w3-margin-top-4 w3-cursive" style="display:none;">
           <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">RESEARCH</h2>
           <div class="w3-container w3-margin-top-2 w3-cursive">
-            <!-- PREPRINTS -->
             <h3 class="w3-border-amber">PREPRINTS</h3>
             <ul class="w3-ul" style="font-weight: 500;">
               <li><b><font size="+1"><a href="https://arxiv.org/abs/2508.08208">On the attainability of singular Wiener bound</a></font></b> arXiv: 2508.08208</li>
             </ul>
-            <!-- PUBLICATIONS -->
             <h3 class="w3-border-amber">PUBLICATIONS</h3>
             <ul class="w3-ul" style="font-weight: 500;">
               <li><b><font size="+1"><a href="https://arxiv.org/abs/2505.17298">Homogenization of a vertical oscillating Neumann condition</a></font></b> Joint with William Feldman, arXiv: 2505.17298, accepted by Archive for Rational Mechanics and Analysis</li>
@@ -232,7 +239,6 @@
               <li><b><font size="+1"><a href="https://arxiv.org/abs/2212.03701">Is mean curvature flow a gradient flow?</a></font></b> arXiv: 2212.03701 (to appear in Proceedings of the American Mathematical Society)</li>
               <li><b><font size="+1"><a href="https://doi.org/10.1016/j.jde.2021.02.024">Homogenization of enhancing thin layers</a></font></b> Journal of Differential Equations, Volume 282, 2021, Pages 330-369</li>
             </ul>
-            <!-- THESIS, NOTES, SLIDES AND VIDEOS -->
             <h3 class="w3-border-amber">THESIS, NOTES, SLIDES AND VIDEOS</h3>
             <ul class="w3-ul" style="font-weight: 500;">
               <li><a href="./SingularWienerBound.pdf" target="_blank" download="SingularWienerBound.pdf">[SLIDE] Attainability of the singular Wiener bound and leaf venation patterns, November 03 2025, WashU St. Louis</a></li>
@@ -249,7 +255,6 @@
   </section>
 
   <script>
-    // 移动端菜单切换
     function toggleNavigation() {
       let nav = document.getElementById("mobile-nav");
       if (nav.classList.contains('w3-show')) {
@@ -259,7 +264,6 @@
       }
     }
 
-    // 面板切换函数
     function showPanel(panelName) {
       const panels = document.querySelectorAll('.panel');
       panels.forEach(p => p.style.display = 'none');
@@ -272,7 +276,6 @@
         document.getElementById('home-panel').style.display = 'block';
       }
 
-      // 更新桌面导航高亮
       const tablinks = document.querySelectorAll('.tablink');
       tablinks.forEach(btn => {
         btn.classList.remove('nav-active', 'w3-text-green', 'w3-border-green');
@@ -281,7 +284,6 @@
         }
       });
 
-      // 更新移动导航高亮
       const mobileLinks = document.querySelectorAll('#mobile-nav a');
       mobileLinks.forEach(link => {
         link.classList.remove('w3-text-green', 'w3-border-green');
@@ -291,7 +293,6 @@
       });
     }
 
-    // 初始化：显示HOME面板，高亮HOME按钮
     window.onload = function() {
       document.querySelectorAll('.panel').forEach(p => p.style.display = 'none');
       document.getElementById('home-panel').style.display = 'block';
