@@ -105,28 +105,36 @@
 </head>
 <body>   
   <section>
-    <!-- 移动端导航 -->
-    <div class="w3-container w3-padding-16 w3-border-bottom w3-hide-medium w3-hide-large">
-      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-none">CURRICULUM VITAE</a>
-      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="toggleNavigation()">&#9776;</a>
+    <!-- 移动端导航栏 (已加入下载CV图标) -->
+    <div class="w3-bar w3-padding-16 w3-border-bottom w3-hide-medium w3-hide-large">
+      <div class="w3-left">
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-none">CURRICULUM VITAE</a>
+      </div>
+      <div class="w3-right">
+        <!-- 移动端下载按钮：仅图标 + "CV" 简短文字，保持功能 -->
+        <a href="./CV_Zhonggan_20260301.pdf" class="w3-bar-item w3-button w3-amber w3-hover-deep-orange" target="_blank" download="CV_Zhonggan_20260301.pdf" style="padding:8px 12px;">
+          <i data-feather="arrow-down" style="vertical-align: -0.2em;"></i> CV
+        </a>
+        <a href="javascript:void(0)" class="w3-bar-item w3-button" onclick="toggleNavigation()">&#9776;</a>
+      </div>
     </div>
     <div id="mobile-nav" class="w3-bar-block w3-hide w3-hide-large w3-hide-medium w3-sticky">
       <a href="javascript:void(0)" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="showPanel('home'); toggleNavigation();">HOME</a>
       <a href="javascript:void(0)" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="showPanel('research'); toggleNavigation();">RESEARCH</a>
     </div>
 
-    <!-- 左侧固定栏（已按新要求调整） -->
+    <!-- 左侧固定栏 (移除了DOWNLOAD CV按钮) -->
     <section class="image-section w3-quarter w3-fixed w3-padding-small">
       <img src="a.jpg" class="w3-circle w3-border w3-border-sand" style="border-width: 3px !important;"/>
 
-      <!-- 新加：姓名、职位（头像下方，ABOUT ME上方） -->
+      <!-- 姓名、职位（头像下方） -->
       <div class="w3-container w3-margin-top w3-cursive" style="color: #ffffff;">
         <h1 style="color: #ffffff;">黄忠淦</h1>
         <h2 style="color: #ffffff;">Zhonggan Huang</h2>
         <p></p>
       </div>
 
-      <!-- ABOUT ME 部分 -->
+      <!-- ABOUT ME -->
       <div id="about" class="w3-container w3-margin-top-15-percent w3-cursive w3-large">
         <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;color: #ffffff">ABOUT ME</h2>
         <p class="w3-margin-top-1"> 
@@ -143,7 +151,7 @@
         </div>
       </div>
 
-      <!-- EDUCATION 区块（原在右侧，现移入左侧） -->
+      <!-- EDUCATION 区块 -->
       <div id="education-left" class="w3-container w3-margin-top-15-percent w3-cursive">
         <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;color: #ffffff">EDUCATION</h2>
         <div style="font-weight: 500; color: #ffffff;">
@@ -156,15 +164,7 @@
         </div>
       </div>
 
-      <!-- CV 下载按钮 -->
-      <div class="w3-container w3-padding-16">
-        <a href="./CV_Zhonggan_20260301.pdf" class="w3-amber w3-hover-amber w3-button w3-round-small w3-hover-deep-orange w3-padding-large" target="_blank" download="CV_Zhonggan_20260301.pdf">
-          <i data-feather="arrow-down" style="vertical-align: -0.35em;"></i>
-          <span class="w3-margin-left download-text">DOWNLOAD CV</span>
-        </a>
-      </div>
-
-      <!-- 新加：诗句置于左边栏最底部（下载按钮下方） -->
+      <!-- 诗句置于左边栏最底部 (下载按钮已移除，诗句保留) -->
       <div class="w3-container w3-margin-top w3-cursive" style="color: #ffffff;">
         <p style="font-style: italic; font-size:x-large; color: #ffffff;">溯洄从之，道阻且长。溯游从之，宛在水中央。</p>
       </div>
@@ -172,11 +172,15 @@
 
     <!-- 右侧动态面板 (仅 HOME / RESEARCH) -->
     <section class="w3-threequarter w3-padding-large w3-right">
-      <!-- 桌面导航栏 -->
+      <!-- 桌面导航栏 (DOWNLOAD CV 已移到右侧) -->
       <div class="w3-container w3-padding-large w3-border-bottom w3-hide-small">
         <div class="w3-bar">
           <span class="w3-bar-item w3-hover-none w3-border-white" style="font-weight: 500;">CURRICULUM VITAE</span>
           <div class="w3-right">
+            <!-- 下载按钮放在HOME、RESEARCH之后，保留琥珀色背景但调整了内边距以适合页眉 -->
+            <a href="./CV_Zhonggan_20260301.pdf" class="w3-bar-item w3-button w3-amber w3-hover-deep-orange" target="_blank" download="CV_Zhonggan_20260301.pdf" style="margin-right:4px;">
+              <i data-feather="arrow-down" style="vertical-align: -0.35em;"></i> DOWNLOAD CV
+            </a>
             <button class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green tablink" onclick="showPanel('home')">HOME</button>
             <button class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green tablink" onclick="showPanel('research')">RESEARCH</button>
           </div>
@@ -185,9 +189,8 @@
 
       <!-- 面板容器 -->
       <div class="content-container w3-margin-top-2">
-        <!-- HOME 面板 (已移除诗句及姓名，仅保留研究图示) -->
+        <!-- HOME 面板 -->
         <div id="home-panel" class="panel w3-container w3-margin-top-4 w3-cursive">
-          <!-- 注意：原来的诗句和姓名已移至左侧栏，此处不再重复 -->
           <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">Recent figures</h2>
           <figure>
             <div class="image-row">
@@ -221,7 +224,7 @@
           </figure>
         </div>
 
-        <!-- RESEARCH 面板 (原RESUME内容，仅改名) -->
+        <!-- RESEARCH 面板 -->
         <div id="research-panel" class="panel w3-container w3-margin-top-4 w3-cursive" style="display:none;">
           <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">RESEARCH</h2>
           <div class="w3-container w3-margin-top-2 w3-cursive">
