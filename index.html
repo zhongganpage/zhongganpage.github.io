@@ -99,22 +99,47 @@
     .nav-active {
       border-bottom: 3px solid #ffc107 !important;
       color: #ffc107 !important;
-      font-weight: 500;
+      font-weight: 700 !important; /* 加粗激活状态 */
+    }
+    /* 为research小节增加垂直间距 */
+    .research-section {
+      margin-bottom: 2.5rem;
+    }
+    .research-section:last-child {
+      margin-bottom: 0;
+    }
+    /* 桌面导航栏自定义：flex布局实现HOME/RESEARCH居中，并加粗 */
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-center {
+      flex: 1; /* 占据剩余空间 */
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem; /* 按钮间距 */
+    }
+    .nav-center button {
+      font-weight: 700 !important;  /* 加粗 */
+      font-size: 1.1rem;            /* 稍大字号 */
+    }
+    /* 左侧下载按钮样式微调 */
+    .download-btn {
+      font-weight: 600;
     }
   </style>
 </head>
 <body>   
   <section>
-    <!-- 移动端导航栏 (已加入下载CV图标) -->
+    <!-- 移动端导航栏 (左侧下载按钮，右侧汉堡菜单) -->
     <div class="w3-bar w3-padding-16 w3-border-bottom w3-hide-medium w3-hide-large">
       <div class="w3-left">
-        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-none">CURRICULUM VITAE</a>
-      </div>
-      <div class="w3-right">
-        <!-- 移动端下载按钮：仅图标 + "CV" 简短文字，保持功能 -->
         <a href="./CV_Zhonggan_20260301.pdf" class="w3-bar-item w3-button w3-amber w3-hover-deep-orange" target="_blank" download="CV_Zhonggan_20260301.pdf" style="padding:8px 12px;">
           <i data-feather="arrow-down" style="vertical-align: -0.2em;"></i> CV
         </a>
+      </div>
+      <div class="w3-right">
         <a href="javascript:void(0)" class="w3-bar-item w3-button" onclick="toggleNavigation()">&#9776;</a>
       </div>
     </div>
@@ -123,7 +148,7 @@
       <a href="javascript:void(0)" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="showPanel('research'); toggleNavigation();">RESEARCH</a>
     </div>
 
-    <!-- 左侧固定栏 (移除了DOWNLOAD CV按钮) -->
+    <!-- 左侧固定栏 (无下载按钮) -->
     <section class="image-section w3-quarter w3-fixed w3-padding-small">
       <img src="a.jpg" class="w3-circle w3-border w3-border-sand" style="border-width: 3px !important;"/>
 
@@ -164,25 +189,29 @@
         </div>
       </div>
 
-      <!-- 诗句置于左边栏最底部 (下载按钮已移除，诗句保留) -->
+      <!-- 诗句置于左边栏最底部 -->
       <div class="w3-container w3-margin-top w3-cursive" style="color: #ffffff;">
         <p style="font-style: italic; font-size:x-large; color: #ffffff;">溯洄从之，道阻且长。溯游从之，宛在水中央。</p>
       </div>
     </section>
 
-    <!-- 右侧动态面板 (仅 HOME / RESEARCH) -->
+    <!-- 右侧动态面板 -->
     <section class="w3-threequarter w3-padding-large w3-right">
-      <!-- 桌面导航栏 (DOWNLOAD CV 已移到右侧) -->
+      <!-- 桌面导航栏 (左侧下载，中间HOME/RESEARCH，右侧留白) -->
       <div class="w3-container w3-padding-large w3-border-bottom w3-hide-small">
-        <div class="w3-bar">
-          <span class="w3-bar-item w3-hover-none w3-border-white" style="font-weight: 500;">CURRICULUM VITAE</span>
-          <div class="w3-right">
-            <!-- 下载按钮放在HOME、RESEARCH之后，保留琥珀色背景但调整了内边距以适合页眉 -->
-            <a href="./CV_Zhonggan_20260301.pdf" class="w3-bar-item w3-button w3-amber w3-hover-deep-orange" target="_blank" download="CV_Zhonggan_20260301.pdf" style="margin-right:4px;">
-              <i data-feather="arrow-down" style="vertical-align: -0.35em;"></i> DOWNLOAD CV
-            </a>
-            <button class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green tablink" onclick="showPanel('home')">HOME</button>
-            <button class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green tablink" onclick="showPanel('research')">RESEARCH</button>
+        <!-- 使用自定义flex容器 -->
+        <div class="desktop-nav">
+          <!-- 左侧下载按钮 -->
+          <a href="./CV_Zhonggan_20260301.pdf" class="w3-button w3-amber w3-hover-deep-orange download-btn" target="_blank" download="CV_Zhonggan_20260301.pdf">
+            <i data-feather="arrow-down" style="vertical-align: -0.35em;"></i> DOWNLOAD CV
+          </a>
+          <!-- 中间按钮组 (居中、加粗) -->
+          <div class="nav-center">
+            <button class="w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green tablink" onclick="showPanel('home')">HOME</button>
+            <button class="w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green tablink" onclick="showPanel('research')">RESEARCH</button>
+          </div>
+          <!-- 右侧透明占位，保持对称（可选） -->
+          <div style="width:140px;"> <!-- 与左侧下载按钮大致等宽，使中间真正居中；下载按钮宽度约140px，可微调 -->
           </div>
         </div>
       </div>
@@ -224,30 +253,39 @@
           </figure>
         </div>
 
-        <!-- RESEARCH 面板 -->
+        <!-- RESEARCH 面板 (各小节竖直间距加大) -->
         <div id="research-panel" class="panel w3-container w3-margin-top-4 w3-cursive" style="display:none;">
           <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">RESEARCH</h2>
           <div class="w3-container w3-margin-top-2 w3-cursive">
-            <h3 class="w3-border-amber">PREPRINTS</h3>
-            <ul class="w3-ul" style="font-weight: 500;">
-              <li><b><font size="+1"><a href="https://arxiv.org/abs/2508.08208">On the attainability of singular Wiener bound</a></font></b> arXiv: 2508.08208</li>
-            </ul>
-            <h3 class="w3-border-amber">PUBLICATIONS</h3>
-            <ul class="w3-ul" style="font-weight: 500;">
-              <li><b><font size="+1"><a href="https://arxiv.org/abs/2505.17298">Homogenization of a vertical oscillating Neumann condition</a></font></b> Joint with William Feldman, arXiv: 2505.17298, accepted by Archive for Rational Mechanics and Analysis</li>
-              <li><b><font size="+1"><a href="https://doi.org/10.1016/j.matpur.2026.103863">Regularity theory of a gradient degenerate Neumann problem</a></font></b> Joint with William Feldman, Journal de Mathématiques Pures et Appliquées, Volume 209, May 2026, 103863</li>
-              <li><b><font size="+1"><a href="https://arxiv.org/abs/2212.03701">Is mean curvature flow a gradient flow?</a></font></b> arXiv: 2212.03701 (to appear in Proceedings of the American Mathematical Society)</li>
-              <li><b><font size="+1"><a href="https://doi.org/10.1016/j.jde.2021.02.024">Homogenization of enhancing thin layers</a></font></b> Journal of Differential Equations, Volume 282, 2021, Pages 330-369</li>
-            </ul>
-            <h3 class="w3-border-amber">THESIS, NOTES, SLIDES AND VIDEOS</h3>
-            <ul class="w3-ul" style="font-weight: 500;">
-              <li><a href="./SingularWienerBound.pdf" target="_blank" download="SingularWienerBound.pdf">[SLIDE] Attainability of the singular Wiener bound and leaf venation patterns, November 03 2025, WashU St. Louis</a></li>
-              <li><a href="https://www.birs.ca/events/2024/5-day-workshops/24w5198/videos/watch/202408131630-Huang.html" target="_blank">[VIDEO] Regularity theory of a gradient degenerate Neumann problem, in Oaxaca on August 13</a></li>
-              <li><a href="./slideonsignorini.pdf" target="_blank" download="slideonsignorinitypeprob.pdf">[SLIDE] 一个类Signorini梯度退化问题的最优正则性: 10/05/2024 于南方科技大学</a></li>
-              <li><a href="./ldpandgf.pdf" target="_blank" download="大偏差原理与梯度流试讲.pdf">[SLIDE] 大偏差原理与梯度流试讲(On Large Deviation Principle and Gradient Flows): 11/17/2022 于西北大学</a></li>
-              <li><a href="./Master_Degree_Thesis.pdf" target="_blank" download="Topics_on_reaction-diffusion_equations_with_large_diffusion_rates_within_thin_components:_Master_Degree_Thesis.pdf">[Thesis] Topics on reaction-diffusion equations with large diffusion rates within thin components: Master Degree Thesis 2021</a></li>
-              <li><a href="./PDE_IN_SUSTECH.pdf" target="_blank" download="Notes_on_partial_differential_equations:_2018-2019.pdf">[NOTE] Notes on partial differential equations: 2018-2019</a></li>
-            </ul>
+            <!-- 每个小节包裹一个research-section，增加底部间距 -->
+            <div class="research-section">
+              <h3 class="w3-border-amber">PREPRINTS</h3>
+              <ul class="w3-ul" style="font-weight: 500;">
+                <li><b><font size="+1"><a href="https://arxiv.org/abs/2508.08208">On the attainability of singular Wiener bound</a></font></b> arXiv: 2508.08208</li>
+              </ul>
+            </div>
+
+            <div class="research-section">
+              <h3 class="w3-border-amber">PUBLICATIONS</h3>
+              <ul class="w3-ul" style="font-weight: 500;">
+                <li><b><font size="+1"><a href="https://arxiv.org/abs/2505.17298">Homogenization of a vertical oscillating Neumann condition</a></font></b> Joint with William Feldman, arXiv: 2505.17298, accepted by Archive for Rational Mechanics and Analysis</li>
+                <li><b><font size="+1"><a href="https://doi.org/10.1016/j.matpur.2026.103863">Regularity theory of a gradient degenerate Neumann problem</a></font></b> Joint with William Feldman, Journal de Mathématiques Pures et Appliquées, Volume 209, May 2026, 103863</li>
+                <li><b><font size="+1"><a href="https://arxiv.org/abs/2212.03701">Is mean curvature flow a gradient flow?</a></font></b> arXiv: 2212.03701 (to appear in Proceedings of the American Mathematical Society)</li>
+                <li><b><font size="+1"><a href="https://doi.org/10.1016/j.jde.2021.02.024">Homogenization of enhancing thin layers</a></font></b> Journal of Differential Equations, Volume 282, 2021, Pages 330-369</li>
+              </ul>
+            </div>
+
+            <div class="research-section">
+              <h3 class="w3-border-amber">THESIS, NOTES, SLIDES AND VIDEOS</h3>
+              <ul class="w3-ul" style="font-weight: 500;">
+                <li><a href="./SingularWienerBound.pdf" target="_blank" download="SingularWienerBound.pdf">[SLIDE] Attainability of the singular Wiener bound and leaf venation patterns, November 03 2025, WashU St. Louis</a></li>
+                <li><a href="https://www.birs.ca/events/2024/5-day-workshops/24w5198/videos/watch/202408131630-Huang.html" target="_blank">[VIDEO] Regularity theory of a gradient degenerate Neumann problem, in Oaxaca on August 13</a></li>
+                <li><a href="./slideonsignorini.pdf" target="_blank" download="slideonsignorinitypeprob.pdf">[SLIDE] 一个类Signorini梯度退化问题的最优正则性: 10/05/2024 于南方科技大学</a></li>
+                <li><a href="./ldpandgf.pdf" target="_blank" download="大偏差原理与梯度流试讲.pdf">[SLIDE] 大偏差原理与梯度流试讲(On Large Deviation Principle and Gradient Flows): 11/17/2022 于西北大学</a></li>
+                <li><a href="./Master_Degree_Thesis.pdf" target="_blank" download="Topics_on_reaction-diffusion_equations_with_large_diffusion_rates_within_thin_components:_Master_Degree_Thesis.pdf">[Thesis] Topics on reaction-diffusion equations with large diffusion rates within thin components: Master Degree Thesis 2021</a></li>
+                <li><a href="./PDE_IN_SUSTECH.pdf" target="_blank" download="Notes_on_partial_differential_equations:_2018-2019.pdf">[NOTE] Notes on partial differential equations: 2018-2019</a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
