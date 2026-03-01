@@ -1,383 +1,328 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zhonggan Huang personal website</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!--Montserrat font-->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css" />
-    <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
-<style>
-/* Simple reset and figure styling */
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zhonggan Huang · personal website</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!--Montserrat font-->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
+  <style>
+    /* Simple reset and figure styling */
+    body {
+      margin: 20px;
+      font-family: sans-serif;
+      line-height: 1.4;
+    }
+    figure {
+      max-width: 1400px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+      background: #fafafa;
+    }
+    .image-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;                /* space between subfigures */
+    }
+    .subfigure {
+      flex: 1 1 0;               /* each grows equally, width determined by gap */
+      box-sizing: border-box;
+      text-align: center;
+      padding: 0;
+      min-width: 120px;          /* optional: prevent too small on narrow screens */
+    }
+    .subfigure img {
+      width: 100%;                /* now fills the subfigure container */
+      height: auto;
+      display: block;
+      border: 1px solid #ddd;     /* optional border */
+    }
+    figcaption {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      text-align: left;
+      color: #333;
+      border-top: 1px solid #ccc;
+      padding-top: 8px;
+    }
 
-
-  
-body {
-    margin: 20px;
-    font-family: sans-serif;
-    line-height: 1.4;
-}
-figure {
-    max-width: 1400px;
-    margin: 0 auto;
-    border: 1px solid #ccc;
-    padding: 10px;
-    background: #fafafa;
-}
-
-
-  
-.image-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;                /* space between subfigures */
-}
-.subfigure {
-    flex: 1 1 0;               /* each grows equally, width determined by gap */
-    box-sizing: border-box;
-    text-align: center;
-    padding: 0;
-    min-width: 120px;          /* optional: prevent too small on narrow screens */
-}
-.subfigure img {
-    width: 100%;                /* now fills the subfigure container */
-    height: auto;
-    display: block;
-    border: 1px solid #ddd;     /* optional border */
-}
-figcaption {
-    margin-top: 15px;
-    font-size: 1.2rem;
-    text-align: left;
-    color: #333;
-    border-top: 1px solid #ccc;
-    padding-top: 8px;
-}
-/* remove the old border-right */
-
-/* New figure set – independent styling */
-
-.new-figure-set .body {
-    margin: 20px;
-    font-family: sans-serif;
-    line-height: 1.4;
-}
-  
-.new-figure-set {
- max-width: 1400px;
-    margin: 0 auto;
-    border: 1px solid #ccc;
-    padding: 10px;
-    background: #fafafa;
-}
-
-.new-figure-set .image-row {
- display: flex;
-    flex-wrap: wrap;
-    gap: 10px;    
-}
-
-.new-figure-set .subfigure {
-  flex: 1 1 0;               /* each grows equally, width determined by gap */
-    box-sizing: border-box;
-    text-align: center;
-    padding: 0;
-    min-width: 120px;  
-}
-
-.new-figure-set .subfigure img {
-  width: 100%;                /* now fills the subfigure container */
-    height: auto;
-    display: block;
-    border: 1px solid #ddd;       /* rounded corners */
-}
-
-.new-figure-set figcaption {
-  margin-top: 15px;
-    font-size: 1.2rem;
-    text-align: left;
-    color: #333;
-    border-top: 1px solid #ccc;
-    padding-top: 8px;
-}
-
-.new-figure-set .subfigure.small {
-  flex: 0 0 34%;   /* occupies 20% of row width */
-}
-.new-figure-set .subfigure.medium {
-  flex: 0 0 64%;
-}
-/* ensure total ≤ 100% (here 20+40+30 = 90%, leaving 10% gap if any) */
-
- figure + figure {
+    /* New figure set – independent styling */
+    .new-figure-set {
+      max-width: 1400px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+      background: #fafafa;
+    }
+    .new-figure-set .image-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;    
+    }
+    .new-figure-set .subfigure {
+      flex: 1 1 0;               
+      box-sizing: border-box;
+      text-align: center;
+      padding: 0;
+      min-width: 120px;  
+    }
+    .new-figure-set .subfigure img {
+      width: 100%;                
+      height: auto;
+      display: block;
+      border: 1px solid #ddd;       
+    }
+    .new-figure-set figcaption {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      text-align: left;
+      color: #333;
+      border-top: 1px solid #ccc;
+      padding-top: 8px;
+    }
+    .new-figure-set .subfigure.small {
+      flex: 0 0 34%;   
+    }
+    .new-figure-set .subfigure.medium {
+      flex: 0 0 64%;
+    }
+    figure + figure {
       margin-top: 30px;
     }
 
-  
-</style>
-
-      
-  </head>
-  <body>   
-    <section>
-      <!-- MOBILE NAVIGATION -->
-      <div class="w3-container w3-padding-16 w3-border-bottom w3-hide-medium w3-hide-large">
-        <a href="#home" class="w3-bar-item w3-button w3-hover-none">CURRICULUM VITAE</a>
-        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="toggleNavigation()">&#9776;</a>
-      </div>
-      <div id="mobile-nav" class="w3-bar-block w3-hide w3-hide-large w3-hide-medium w3-sticky">
-        <a href="#about" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="toggleNavigation()">ABOUT</a>
-        <a href="#resume" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="toggleNavigation()">RESUME</a>
-        <a href="#contact" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="toggleNavigation()">CONTACT</a>
-      </div>
-
-      <!-- SOCIAL SECTION -->
-      <section class="image-section w3-quarter w3-fixed w3-padding-small">
-        <!--IMAGE/AVATAR-->
-        <img src="a.jpg" class="w3-circle w3-border w3-border-sand" style="border-width: 3px !important;"/>
-        <!--SCIAL NETWORK BUTTONS-->
-        <div id="about" class="w3-container w3-margin-top-15-percent w3-cursive w3-large">
-            <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;color: #ffffff" >ABOUT ME</h2>
-            <p class="w3-margin-top-1"> 
-             <span style="color: #ffffff">I am a 5th-year PhD student in the Department of Mathematics, University of Utah. My advisor is Prof. W. Feldman. I'm interested in homogenization theory, free boundary problems and shape optimization problems.   </span> 
-            </p>
-          </div>
-            <!--CONTACT SECTION-->
-         <div id="contact" class="w3-container w3-margin-top-15-percent w3-cursive">
-            <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;color: #ffffff">MY CONTACT DETAILS</h3>
-            <div class="w3-margin-top-2" style="font-weight: 500;">
-              <p><span style="color: #ffffff">Name: Zhonggan Huang</span> </p>
-              <p><span style="color: #ffffff">Address: 155 South 1400 East, JWB 319, Department of Mathematics, University of Utah, Salt Lake City, U.S.</span></p>
-              <p><span style="color: #ffffff">E-mail: zhonggan@math.utah.edu</span></p>
-            </div>
-          </div>
-        <!--CV DOWNLOAD BUTTON-->
-        <div class="w3-container w3-padding-16">
-          <a href="./CV_Zhonggan_20260301.pdf" class="w3-amber w3-hover-amber w3-button w3-round-small w3-hover-deep-orange w3-padding-large" target="_blank" download="CV_Zhonggan_20260301.pdf">
-            <i data-feather="arrow-down" style="vertical-align: -0.35em;"></i>
-            <span class="w3-margin-left download-text">DOWNLOAD CV</span>
-          </a>
-        </div>
-      </section>
-
-      <!--CV CONTENT SECTION-->
-      <section class="w3-threequarter w3-padding-large w3-right">
-        <!--DESKTOP NAVIGATION-->
-        <div class="w3-container w3-padding-large w3-border-bottom w3-hide-small">
-          <a href="#home" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green">CURRICULUM VITAE</a>
-          <a href="#contact" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green w3-right w3-hide-small" style="border-width: 2px !important;" onclick="toggleNavigation()">CONTACT</a>
-          <a href="#resume" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green w3-right w3-hide-small" style="border-width: 2px !important;" onclick="toggleNavigation()">RESUME</a>
-          <a href="#about" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green w3-right w3-hide-small" style="border-width: 2px !important;" onclick="toggleNavigation()">ABOUT</a>
-        </div>
-        <div class="content-container w3-margin-top-2">
-          <!--HOME SECTION-->
-          <div id="home" class="home w3-container w3-margin-top-4 w3-cursive">
-            <p style="font-style: italic; font-size:x-large;"> 溯洄从之，道阻且长。溯游从之，宛在水中央。</p>
-            <h1> 黄忠淦 </h2>
-            <h2> Zhonggan Huang </h3>
-            <h3> PhD candidate </h4>
-            <h4> Department of Mathematics, University of Utah </h4>
-            <p></p>
-          </div>
-
-          <!--ABOUT SECTION-->
-        
-
-<!--figures-->
-
-
-<!--RESUME-->
-          <div id="figures" class="w3-container w3-margin-top-15-percent w3-cursive">
-            <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">Recent figures</h2>
-            <div class="w3-container w3-margin-top-2 w3-cursive">
-
-           <!--PULICATIONS SECTION-->
-           <div class="w3-container w3-margin-top-2 w3-cursive">
-
-          
-<figure>
-    <!-- row of four subfigures -->
-    <div class="image-row">
-        <div class="subfigure">
-            <img src="truleaf.jpg" alt="Leaf veins of Ampelocera ruizii">
-        </div>
-        <div class="subfigure">
-            <img src="reticulate.jpeg" alt="Reticulate \(\mathbb{Z}^2\)-periodic network (full rank)">
-        </div>
-        <div class="subfigure">
-            <img src="isolatedcircles.png" alt="Non-reticulate \(\mathbb{Z}^2\)-periodic network (zero effective tensor)">
-        </div>
-        <div class="subfigure">
-            <img src="lines.png" alt="Non-reticulate \(\mathbb{Z}^2\)-periodic network (rank 1 effective tensor)">
-        </div>
-      <div class="subfigure">
-            <img src="maximal.png" alt="Maximal conductance \(\mathbb{Z}^2\)-periodic network (full rank)">
-        </div>
+    /* custom panel transitions */
+    .panel {
+      transition: opacity 0.2s ease;
+    }
+    /* active nav button */
+    .nav-active {
+      border-bottom: 3px solid #ffc107 !important;
+      color: #ffc107 !important;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>   
+  <section>
+    <!-- MOBILE NAVIGATION (simplified to match panel switching) -->
+    <div class="w3-container w3-padding-16 w3-border-bottom w3-hide-medium w3-hide-large">
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-none">CURRICULUM VITAE</a>
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="toggleNavigation()">&#9776;</a>
+    </div>
+    <div id="mobile-nav" class="w3-bar-block w3-hide w3-hide-large w3-hide-medium w3-sticky">
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="showPanel('home'); toggleNavigation();">HOME</a>
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="showPanel('figures'); toggleNavigation();">FIGURES</a>
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="showPanel('resume'); toggleNavigation();">RESUME</a>
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="showPanel('education'); toggleNavigation();">EDUCATION</a>
     </div>
 
-    <!-- caption -->
-    <figcaption>
-        <strong>Left:</strong> a picture of higher-order veins in a tropical forest tree, <em>Ampelocera ruizii</em>. 
-        The picture is reproduced from (Sack & Scoffoni, 2013), with permission from Wiley; 
-        <strong>Middle left:</strong> a reticulate \(\mathbb{Z}^2\)-periodic network that has full rank effective tensor; 
-        <strong>Middle:</strong> a non-reticulate \(\mathbb{Z}^2\)-periodic network that has zero effective tensor; 
-        <strong> Middle Right:</strong> a non-reticulate \(\mathbb{Z}^2\)-periodic network. It maximizes the effective conductance but the rank is 1.
-       <strong> Right:</strong> a \(\mathbb{Z}^2\)-periodic network that maximizes the effective conductance and has full rank. It is also an irreducible periodic stationary network.
-    </figcaption>
-</figure>
-
-
-
-
-<figure class="new-figure-set">
-  <!-- your new subfigures and caption -->
-
-
-  <div class="image-row">
-        <div class="subfigure small">
-            <img src="graphequ.png" alt="A graphical illustration of the PDE">
+    <!-- SOCIAL SECTION (fixed left column) -->
+    <section class="image-section w3-quarter w3-fixed w3-padding-small">
+      <img src="a.jpg" class="w3-circle w3-border w3-border-sand" style="border-width: 3px !important;"/>
+      <div id="about" class="w3-container w3-margin-top-15-percent w3-cursive w3-large">
+        <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;color: #ffffff">ABOUT ME</h2>
+        <p class="w3-margin-top-1"> 
+          <span style="color: #ffffff">I am a 5th-year PhD student in the Department of Mathematics, University of Utah. My advisor is Prof. W. Feldman. I'm interested in homogenization theory, free boundary problems and shape optimization problems.</span> 
+        </p>
+      </div>
+      <!--CONTACT SECTION (left)-->
+      <div id="contact" class="w3-container w3-margin-top-15-percent w3-cursive">
+        <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;color: #ffffff">MY CONTACT DETAILS</h2>
+        <div class="w3-margin-top-2" style="font-weight: 500;">
+          <p><span style="color: #ffffff">Name: Zhonggan Huang</span></p>
+          <p><span style="color: #ffffff">Address: 155 South 1400 East, JWB 319, Department of Mathematics, University of Utah, Salt Lake City, U.S.</span></p>
+          <p><span style="color: #ffffff">E-mail: zhonggan@math.utah.edu</span></p>
         </div>
-        <div class="subfigure medium">
-            <img src="figforgraph.png" alt="midll">
-        </div>
-    </div>
-
-    <!-- caption -->
-    <figcaption>
-        <strong>Left:</strong> A graphical illustration of the PDE to be homogenized; 
-        <strong>Middle:</strong> The small scale is \(\varepsilon=1/2^5\). The initial data is \(2x_1\) and the Dirichlet boundary condition is \(2x_1+2\tan^{-1}(t)\); 
-      <strong>Right:</strong> The graphs of the restriction of \(u^\varepsilon\) to the boundary \(\{x_1=0\,\}\) at integer times from 1 to 9. The colors represent the value of \(\partial_1 u\). One can observe that 
-      there are already hysteretic pinning phenomenon for positive \(\varepsilon\). I want to thank 许钊箐 (Zhaoqing Xu) for the help in generating the two figures on the right.
-    </figcaption>
-
-  
-</figure>
-
-
-
-
-
-
-
-
-
-
-
-             
-
-            
-          <!--RESUME-->
-          <div id="resume" class="w3-container w3-margin-top-15-percent w3-cursive">
-            <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">RESUME</h2>
-            <div class="w3-container w3-margin-top-2 w3-cursive">
-
-           <!--PULICATIONS SECTION-->
-           <div class="w3-container w3-margin-top-2 w3-cursive">
-
-       
-  <h3 class="w3-border-amber">PREPRINTS</h3>
-  <!--SOFT SKILLS-->
-  <ul class="w3-ul" style="font-weight: 500;">
-
-      <li>
-      <b><font size="+1">
-        <a href="https://arxiv.org/abs/2508.08208">On the attainability of singular Wiener bound</a>
-      </font></b>
-      arXiv: 2508.08208
-    </li>
-
-   
-
-  </ul>
-
-              
-              <h3 class="w3-border-amber">PUBLICATIONS</h3>
-              <!--SOFT SKILLS-->
-              <ul class="w3-ul" style="font-weight: 500;">
-
- <li>
-      <b><font size="+1">
-        <a href="https://arxiv.org/abs/2505.17298">Homogenization of a vertical oscillating Neumann condition</a>
-      </font></b>
-      Joint with William Feldman, arXiv: 2505.17298, accepted by Archive for Rational Mechanics and Analysis
-    </li>
-                
-
-   <li>
-      <b><font size="+1">
-        <a href="https://doi.org/10.1016/j.matpur.2026.103863">Regularity theory of a gradient degenerate Neumann problem</a>
-      </font></b>
-      Joint with William Feldman, Journal de Mathématiques Pures et Appliquées, Volume 209, May 2026, 103863
-    </li>
-    
-    <li>
-      <b><font size="+1">
-        <a href="https://arxiv.org/abs/2212.03701">Is mean curvature flow a gradient flow?</a>
-      </font></b>
-      arXiv: 2212.03701 (to appear in Proceedings of the American Mathematical Society)
-    </li>
-
-                
-  <li>
-  <b><font size="+1">
-      <a href="https://doi.org/10.1016/j.jde.2021.02.024">Homogenization of enhancing thin layers</a>
-    </font></b>
-  Journal of Differential Equations, Volume 282, 2021, Pages 330-369, ISSN 0022-0396
-</li>
-             
-             <h3 class="w3-border-amber">THESIS, NOTES, SLIDES AND VIDEOS</h3>
-            <!--CV DOWNLOAD BUTTON-->
-            <li><a href="./SingularWienerBound.pdf"  target="_blank" download="SingularWienerBound.pdf">[SLIDE] Attainability of the singular Wiener bound and leaf venation patterns, November 03 2025, WashU St. Louis
-             </a></li>
-             <li><a href="https://www.birs.ca/events/2024/5-day-workshops/24w5198/videos/watch/202408131630-Huang.html" target="_blank" >[VIDEO] Regularity theory of a gradient degenerate Neumann problem, in Oaxaca on August 13</a>
-             </li>
-             <li><a href="./slideonsignorini.pdf"  target="_blank" download="slideonsignorinitypeprob.pdf">[SLIDE] 一个类Signorini梯度退化问题的最优正则性: 10/05/2024 于南方科技大学
-             </a></li>
-             <li><a href="./ldpandgf.pdf"  target="_blank" download="大偏差原理与梯度流试讲.pdf">[SLIDE] 大偏差原理与梯度流试讲(On Large Deviation Principle and Gradient Flows): 11/17/2022 于西北大学
-             </a></li>
-             <li><a href="./Master_Degree_Thesis.pdf"  target="_blank" download="Topics_on_reaction-diffusion_equations_with_large_diffusion_rates_within_thin_components:_Master_Degree_Thesis.pdf">[Thesis] Topics on reaction-diffusion equations with large diffusion rates within thin components: Master Degree Thesis 2021
-             </a></li>
-             <li> <a href="./PDE_IN_SUSTECH.pdf"  target="_blank" download="Notes_on_partial_differential_equations:_2018-2019.pdf">[NOTE] Notes on partial differential equations: 2018-2019
-             </a></li>
-            </div>
-
-            <!---EDUCATION SECTION-->
-            <div class="w3-container w3-margin-top-2 w3-cursive">
-              <h3 class="w3-border-amber">MY EDUCATION</h3>
-                <h4>University of Utah, PhD student of Mathematics, Salt Lake City, U.S.</h4>
-                <p>August 2021 – Expected July 2026 </p>
-                <h4>Southern University of Science and Technology, Master of Mathematics, Shenzhen, China</h4>
-                <p>September 2019 – June 2021 </p>
-                <h4>Southern University of Science and Technology, Bachelor of Mathematics and Applied Mathematics , Shenzhen, China</h4>
-                <p>September 2015 – June 2019 </p>
-            </div>
-
-   
-
-     
-        <!--END OF CV SECTION-->
-      </section>      
+      </div>
+      <!--CV DOWNLOAD BUTTON-->
+      <div class="w3-container w3-padding-16">
+        <a href="./CV_Zhonggan_20260301.pdf" class="w3-amber w3-hover-amber w3-button w3-round-small w3-hover-deep-orange w3-padding-large" target="_blank" download="CV_Zhonggan_20260301.pdf">
+          <i data-feather="arrow-down" style="vertical-align: -0.35em;"></i>
+          <span class="w3-margin-left download-text">DOWNLOAD CV</span>
+        </a>
+      </div>
     </section>
-    <script>
-      // Function to toggle mobile navigation
-      function toggleNavigation() {
-        let nav = document.getElementById("mobile-nav");
-        if (nav.classList.contains('w3-show')) {
-          nav.classList.remove('w3-show');
-        } else { 
-          nav.classList.add('w3-show');
-        }
+
+    <!-- RIGHT PANEL: DYNAMIC CONTENT WITH TABBED NAVIGATION -->
+    <section class="w3-threequarter w3-padding-large w3-right">
+      <!-- DESKTOP NAVIGATION (replaces old anchors) -->
+      <div class="w3-container w3-padding-large w3-border-bottom w3-hide-small">
+        <div class="w3-bar">
+          <span class="w3-bar-item w3-hover-none w3-border-white" style="font-weight: 500;">CURRICULUM VITAE</span>
+          <div class="w3-right">
+            <button class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green tablink" onclick="showPanel('home')">HOME</button>
+            <button class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green tablink" onclick="showPanel('figures')">FIGURES</button>
+            <button class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green tablink" onclick="showPanel('resume')">RESUME</button>
+            <button class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green tablink" onclick="showPanel('education')">EDUCATION</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL CONTAINER (all panels, only one visible at a time) -->
+      <div class="content-container w3-margin-top-2">
+
+        <!-- HOME PANEL (original poem + intro) -->
+        <div id="home-panel" class="panel w3-container w3-margin-top-4 w3-cursive">
+          <p style="font-style: italic; font-size:x-large;">溯洄从之，道阻且长。溯游从之，宛在水中央。</p>
+          <h1>黄忠淦</h1>
+          <h2>Zhonggan Huang</h2>
+          <h3>PhD candidate</h3>
+          <h4>Department of Mathematics, University of Utah</h4>
+          <p></p>
+        </div>
+
+        <!-- FIGURES PANEL (both figure sets) -->
+        <div id="figures-panel" class="panel w3-container w3-margin-top-4 w3-cursive" style="display:none;">
+          <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">Recent figures</h2>
+          <!-- first figure set -->
+          <figure>
+            <div class="image-row">
+              <div class="subfigure"><img src="truleaf.jpg" alt="Leaf veins of Ampelocera ruizii"></div>
+              <div class="subfigure"><img src="reticulate.jpeg" alt="Reticulate \(\mathbb{Z}^2\)-periodic network (full rank)"></div>
+              <div class="subfigure"><img src="isolatedcircles.png" alt="Non-reticulate \(\mathbb{Z}^2\)-periodic network (zero effective tensor)"></div>
+              <div class="subfigure"><img src="lines.png" alt="Non-reticulate \(\mathbb{Z}^2\)-periodic network (rank 1 effective tensor)"></div>
+              <div class="subfigure"><img src="maximal.png" alt="Maximal conductance \(\mathbb{Z}^2\)-periodic network (full rank)"></div>
+            </div>
+            <figcaption>
+              <strong>Left:</strong> a picture of higher-order veins in a tropical forest tree, <em>Ampelocera ruizii</em>. 
+              The picture is reproduced from (Sack & Scoffoni, 2013), with permission from Wiley; 
+              <strong>Middle left:</strong> a reticulate \(\mathbb{Z}^2\)-periodic network that has full rank effective tensor; 
+              <strong>Middle:</strong> a non-reticulate \(\mathbb{Z}^2\)-periodic network that has zero effective tensor; 
+              <strong>Middle Right:</strong> a non-reticulate \(\mathbb{Z}^2\)-periodic network. It maximizes the effective conductance but the rank is 1.
+              <strong>Right:</strong> a \(\mathbb{Z}^2\)-periodic network that maximizes the effective conductance and has full rank. It is also an irreducible periodic stationary network.
+            </figcaption>
+          </figure>
+          <!-- second figure set (new-figure-set) -->
+          <figure class="new-figure-set">
+            <div class="image-row">
+              <div class="subfigure small"><img src="graphequ.png" alt="A graphical illustration of the PDE"></div>
+              <div class="subfigure medium"><img src="figforgraph.png" alt="midll"></div>
+            </div>
+            <figcaption>
+              <strong>Left:</strong> A graphical illustration of the PDE to be homogenized; 
+              <strong>Middle:</strong> The small scale is \(\varepsilon=1/2^5\). The initial data is \(2x_1\) and the Dirichlet boundary condition is \(2x_1+2\tan^{-1}(t)\); 
+              <strong>Right:</strong> The graphs of the restriction of \(u^\varepsilon\) to the boundary \(\{x_1=0\,\}\) at integer times from 1 to 9. The colors represent the value of \(\partial_1 u\). One can observe that 
+              there are already hysteretic pinning phenomenon for positive \(\varepsilon\). I want to thank 许钊箐 (Zhaoqing Xu) for the help in generating the two figures on the right.
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- RESUME PANEL (publications, preprints, talks) -->
+        <div id="resume-panel" class="panel w3-container w3-margin-top-4 w3-cursive" style="display:none;">
+          <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">RESUME</h2>
+          <div class="w3-container w3-margin-top-2 w3-cursive">
+            <!-- PREPRINTS -->
+            <h3 class="w3-border-amber">PREPRINTS</h3>
+            <ul class="w3-ul" style="font-weight: 500;">
+              <li><b><font size="+1"><a href="https://arxiv.org/abs/2508.08208">On the attainability of singular Wiener bound</a></font></b> arXiv: 2508.08208</li>
+            </ul>
+            <!-- PUBLICATIONS -->
+            <h3 class="w3-border-amber">PUBLICATIONS</h3>
+            <ul class="w3-ul" style="font-weight: 500;">
+              <li><b><font size="+1"><a href="https://arxiv.org/abs/2505.17298">Homogenization of a vertical oscillating Neumann condition</a></font></b> Joint with William Feldman, arXiv: 2505.17298, accepted by Archive for Rational Mechanics and Analysis</li>
+              <li><b><font size="+1"><a href="https://doi.org/10.1016/j.matpur.2026.103863">Regularity theory of a gradient degenerate Neumann problem</a></font></b> Joint with William Feldman, Journal de Mathématiques Pures et Appliquées, Volume 209, May 2026, 103863</li>
+              <li><b><font size="+1"><a href="https://arxiv.org/abs/2212.03701">Is mean curvature flow a gradient flow?</a></font></b> arXiv: 2212.03701 (to appear in Proceedings of the American Mathematical Society)</li>
+              <li><b><font size="+1"><a href="https://doi.org/10.1016/j.jde.2021.02.024">Homogenization of enhancing thin layers</a></font></b> Journal of Differential Equations, Volume 282, 2021, Pages 330-369</li>
+            </ul>
+            <!-- THESIS, NOTES, SLIDES AND VIDEOS -->
+            <h3 class="w3-border-amber">THESIS, NOTES, SLIDES AND VIDEOS</h3>
+            <ul class="w3-ul" style="font-weight: 500;">
+              <li><a href="./SingularWienerBound.pdf" target="_blank" download="SingularWienerBound.pdf">[SLIDE] Attainability of the singular Wiener bound and leaf venation patterns, November 03 2025, WashU St. Louis</a></li>
+              <li><a href="https://www.birs.ca/events/2024/5-day-workshops/24w5198/videos/watch/202408131630-Huang.html" target="_blank">[VIDEO] Regularity theory of a gradient degenerate Neumann problem, in Oaxaca on August 13</a></li>
+              <li><a href="./slideonsignorini.pdf" target="_blank" download="slideonsignorinitypeprob.pdf">[SLIDE] 一个类Signorini梯度退化问题的最优正则性: 10/05/2024 于南方科技大学</a></li>
+              <li><a href="./ldpandgf.pdf" target="_blank" download="大偏差原理与梯度流试讲.pdf">[SLIDE] 大偏差原理与梯度流试讲(On Large Deviation Principle and Gradient Flows): 11/17/2022 于西北大学</a></li>
+              <li><a href="./Master_Degree_Thesis.pdf" target="_blank" download="Topics_on_reaction-diffusion_equations_with_large_diffusion_rates_within_thin_components:_Master_Degree_Thesis.pdf">[Thesis] Topics on reaction-diffusion equations with large diffusion rates within thin components: Master Degree Thesis 2021</a></li>
+              <li><a href="./PDE_IN_SUSTECH.pdf" target="_blank" download="Notes_on_partial_differential_equations:_2018-2019.pdf">[NOTE] Notes on partial differential equations: 2018-2019</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- EDUCATION PANEL (separated from resume) -->
+        <div id="education-panel" class="panel w3-container w3-margin-top-4 w3-cursive" style="display:none;">
+          <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">EDUCATION</h2>
+          <div class="w3-container w3-margin-top-2 w3-cursive">
+            <h3 class="w3-border-amber">MY EDUCATION</h3>
+            <h4>University of Utah, PhD student of Mathematics, Salt Lake City, U.S.</h4>
+            <p>August 2021 – Expected July 2026</p>
+            <h4>Southern University of Science and Technology, Master of Mathematics, Shenzhen, China</h4>
+            <p>September 2019 – June 2021</p>
+            <h4>Southern University of Science and Technology, Bachelor of Mathematics and Applied Mathematics , Shenzhen, China</h4>
+            <p>September 2015 – June 2019</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <script>
+    // Toggle mobile navigation menu
+    function toggleNavigation() {
+      let nav = document.getElementById("mobile-nav");
+      if (nav.classList.contains('w3-show')) {
+        nav.classList.remove('w3-show');
+      } else { 
+        nav.classList.add('w3-show');
       }
-    </script>
-    <script>
-      // Script to load feather icons
-      feather.replace()
-    </script>
-  </body>
+    }
+
+    // Panel switching function
+    function showPanel(panelName) {
+      // hide all panels
+      const panels = document.querySelectorAll('.panel');
+      panels.forEach(p => p.style.display = 'none');
+      
+      // show selected panel
+      const activePanel = document.getElementById(panelName + '-panel');
+      if (activePanel) {
+        activePanel.style.display = 'block';
+      } else {
+        // fallback to home if something goes wrong
+        document.getElementById('home-panel').style.display = 'block';
+      }
+
+      // update active class on desktop nav buttons
+      const tablinks = document.querySelectorAll('.tablink');
+      tablinks.forEach(btn => {
+        btn.classList.remove('nav-active', 'w3-text-green', 'w3-border-green');
+        // check if the button's onclick roughly matches the panel
+        if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(panelName)) {
+          btn.classList.add('nav-active', 'w3-text-green', 'w3-border-green');
+        }
+      });
+
+      // also update mobile nav active style (simple visual)
+      const mobileLinks = document.querySelectorAll('#mobile-nav a');
+      mobileLinks.forEach(link => {
+        link.classList.remove('w3-text-green', 'w3-border-green');
+        if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(panelName)) {
+          link.classList.add('w3-text-green', 'w3-border-green');
+        }
+      });
+    }
+
+    // initialise: show home panel by default and set active button
+    window.onload = function() {
+      // hide all panels initially via style? they already have inline style, but ensure home is visible
+      document.querySelectorAll('.panel').forEach(p => p.style.display = 'none');
+      document.getElementById('home-panel').style.display = 'block';
+      
+      // set active class on home button
+      const homeBtn = Array.from(document.querySelectorAll('.tablink')).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes('home'));
+      if (homeBtn) {
+        homeBtn.classList.add('nav-active', 'w3-text-green', 'w3-border-green');
+      }
+
+      // feather icons
+      feather.replace();
+    };
+  </script>
+  <!-- ensure feather icons run after dynamic content (already called in onload) -->
+</body>
 </html>
