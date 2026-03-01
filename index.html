@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
   <style>
-    /* Simple reset and figure styling */
+    /* 原有样式保持不变，仅添加少许调整 */
     body {
       margin: 20px;
       font-family: sans-serif;
@@ -29,20 +29,20 @@
     .image-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;                /* space between subfigures */
+      gap: 10px;
     }
     .subfigure {
-      flex: 1 1 0;               /* each grows equally, width determined by gap */
+      flex: 1 1 0;
       box-sizing: border-box;
       text-align: center;
       padding: 0;
-      min-width: 120px;          /* optional: prevent too small on narrow screens */
+      min-width: 120px;
     }
     .subfigure img {
-      width: 100%;                /* now fills the subfigure container */
+      width: 100%;
       height: auto;
       display: block;
-      border: 1px solid #ddd;     /* optional border */
+      border: 1px solid #ddd;
     }
     figcaption {
       margin-top: 15px;
@@ -52,8 +52,6 @@
       border-top: 1px solid #ccc;
       padding-top: 8px;
     }
-
-    /* New figure set – independent styling */
     .new-figure-set {
       max-width: 1400px;
       margin: 0 auto;
@@ -96,12 +94,9 @@
     figure + figure {
       margin-top: 30px;
     }
-
-    /* custom panel transitions */
     .panel {
       transition: opacity 0.2s ease;
     }
-    /* active nav button */
     .nav-active {
       border-bottom: 3px solid #ffc107 !important;
       color: #ffc107 !important;
@@ -111,28 +106,27 @@
 </head>
 <body>   
   <section>
-    <!-- MOBILE NAVIGATION (simplified to match panel switching) -->
+    <!-- 移动端导航 (更新为 HOME / RESEARCH) -->
     <div class="w3-container w3-padding-16 w3-border-bottom w3-hide-medium w3-hide-large">
       <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-none">CURRICULUM VITAE</a>
       <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="toggleNavigation()">&#9776;</a>
     </div>
     <div id="mobile-nav" class="w3-bar-block w3-hide w3-hide-large w3-hide-medium w3-sticky">
       <a href="javascript:void(0)" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="showPanel('home'); toggleNavigation();">HOME</a>
-      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="showPanel('figures'); toggleNavigation();">FIGURES</a>
-      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="showPanel('resume'); toggleNavigation();">RESUME</a>
-      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="showPanel('education'); toggleNavigation();">EDUCATION</a>
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="showPanel('research'); toggleNavigation();">RESEARCH</a>
     </div>
 
-    <!-- SOCIAL SECTION (fixed left column) -->
+    <!-- 左侧固定栏：添加 EDUCATION 区块 -->
     <section class="image-section w3-quarter w3-fixed w3-padding-small">
       <img src="a.jpg" class="w3-circle w3-border w3-border-sand" style="border-width: 3px !important;"/>
+      <!-- ABOUT ME -->
       <div id="about" class="w3-container w3-margin-top-15-percent w3-cursive w3-large">
         <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;color: #ffffff">ABOUT ME</h2>
         <p class="w3-margin-top-1"> 
           <span style="color: #ffffff">I am a 5th-year PhD student in the Department of Mathematics, University of Utah. My advisor is Prof. W. Feldman. I'm interested in homogenization theory, free boundary problems and shape optimization problems.</span> 
         </p>
       </div>
-      <!--CONTACT SECTION (left)-->
+      <!-- CONTACT DETAILS -->
       <div id="contact" class="w3-container w3-margin-top-15-percent w3-cursive">
         <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;color: #ffffff">MY CONTACT DETAILS</h2>
         <div class="w3-margin-top-2" style="font-weight: 500;">
@@ -141,7 +135,19 @@
           <p><span style="color: #ffffff">E-mail: zhonggan@math.utah.edu</span></p>
         </div>
       </div>
-      <!--CV DOWNLOAD BUTTON-->
+      <!-- 新插入的 EDUCATION 区块 (从右侧移入) -->
+      <div id="education-left" class="w3-container w3-margin-top-15-percent w3-cursive">
+        <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;color: #ffffff">EDUCATION</h2>
+        <div style="font-weight: 500; color: #ffffff;">
+          <h4 style="color: #ffffff; margin-bottom: 0;">University of Utah, PhD in Mathematics</h4>
+          <p style="margin-top: 0;">Aug 2021 – Jul 2026 (expected)</p>
+          <h4 style="color: #ffffff; margin-bottom: 0;">SUSTech, Master of Mathematics</h4>
+          <p style="margin-top: 0;">Sep 2019 – Jun 2021</p>
+          <h4 style="color: #ffffff; margin-bottom: 0;">SUSTech, Bachelor of Mathematics</h4>
+          <p style="margin-top: 0;">Sep 2015 – Jun 2019</p>
+        </div>
+      </div>
+      <!-- CV DOWNLOAD -->
       <div class="w3-container w3-padding-16">
         <a href="./CV_Zhonggan_20260301.pdf" class="w3-amber w3-hover-amber w3-button w3-round-small w3-hover-deep-orange w3-padding-large" target="_blank" download="CV_Zhonggan_20260301.pdf">
           <i data-feather="arrow-down" style="vertical-align: -0.35em;"></i>
@@ -150,38 +156,33 @@
       </div>
     </section>
 
-    <!-- RIGHT PANEL: DYNAMIC CONTENT WITH TABBED NAVIGATION -->
+    <!-- 右侧动态面板 (仅 HOME / RESEARCH) -->
     <section class="w3-threequarter w3-padding-large w3-right">
-      <!-- DESKTOP NAVIGATION (replaces old anchors) -->
+      <!-- 桌面导航栏 (HOME / RESEARCH) -->
       <div class="w3-container w3-padding-large w3-border-bottom w3-hide-small">
         <div class="w3-bar">
           <span class="w3-bar-item w3-hover-none w3-border-white" style="font-weight: 500;">CURRICULUM VITAE</span>
           <div class="w3-right">
             <button class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green tablink" onclick="showPanel('home')">HOME</button>
-            <button class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green tablink" onclick="showPanel('figures')">FIGURES</button>
-            <button class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green tablink" onclick="showPanel('resume')">RESUME</button>
-            <button class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green tablink" onclick="showPanel('education')">EDUCATION</button>
+            <button class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green tablink" onclick="showPanel('research')">RESEARCH</button>
           </div>
         </div>
       </div>
 
-      <!-- PANEL CONTAINER (all panels, only one visible at a time) -->
+      <!-- 面板容器 -->
       <div class="content-container w3-margin-top-2">
-
-        <!-- HOME PANEL (original poem + intro) -->
+        <!-- HOME 面板 (包含原中文诗句 + 所有 figure) -->
         <div id="home-panel" class="panel w3-container w3-margin-top-4 w3-cursive">
+          <!-- 原 home 内容 -->
           <p style="font-style: italic; font-size:x-large;">溯洄从之，道阻且长。溯游从之，宛在水中央。</p>
           <h1>黄忠淦</h1>
           <h2>Zhonggan Huang</h2>
           <h3>PhD candidate</h3>
           <h4>Department of Mathematics, University of Utah</h4>
           <p></p>
-        </div>
 
-        <!-- FIGURES PANEL (both figure sets) -->
-        <div id="figures-panel" class="panel w3-container w3-margin-top-4 w3-cursive" style="display:none;">
-          <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">Recent figures</h2>
-          <!-- first figure set -->
+          <!-- 插入两个 figure 集 (原 FIGURES 面板内容) -->
+          <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important; margin-top: 40px;">Recent figures</h2>
           <figure>
             <div class="image-row">
               <div class="subfigure"><img src="truleaf.jpg" alt="Leaf veins of Ampelocera ruizii"></div>
@@ -199,7 +200,7 @@
               <strong>Right:</strong> a \(\mathbb{Z}^2\)-periodic network that maximizes the effective conductance and has full rank. It is also an irreducible periodic stationary network.
             </figcaption>
           </figure>
-          <!-- second figure set (new-figure-set) -->
+
           <figure class="new-figure-set">
             <div class="image-row">
               <div class="subfigure small"><img src="graphequ.png" alt="A graphical illustration of the PDE"></div>
@@ -214,9 +215,9 @@
           </figure>
         </div>
 
-        <!-- RESUME PANEL (publications, preprints, talks) -->
-        <div id="resume-panel" class="panel w3-container w3-margin-top-4 w3-cursive" style="display:none;">
-          <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">RESUME</h2>
+        <!-- RESEARCH 面板 (原 RESUME 内容，仅改名) -->
+        <div id="research-panel" class="panel w3-container w3-margin-top-4 w3-cursive" style="display:none;">
+          <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">RESEARCH</h2>
           <div class="w3-container w3-margin-top-2 w3-cursive">
             <!-- PREPRINTS -->
             <h3 class="w3-border-amber">PREPRINTS</h3>
@@ -243,26 +244,12 @@
             </ul>
           </div>
         </div>
-
-        <!-- EDUCATION PANEL (separated from resume) -->
-        <div id="education-panel" class="panel w3-container w3-margin-top-4 w3-cursive" style="display:none;">
-          <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">EDUCATION</h2>
-          <div class="w3-container w3-margin-top-2 w3-cursive">
-            <h3 class="w3-border-amber">MY EDUCATION</h3>
-            <h4>University of Utah, PhD student of Mathematics, Salt Lake City, U.S.</h4>
-            <p>August 2021 – Expected July 2026</p>
-            <h4>Southern University of Science and Technology, Master of Mathematics, Shenzhen, China</h4>
-            <p>September 2019 – June 2021</p>
-            <h4>Southern University of Science and Technology, Bachelor of Mathematics and Applied Mathematics , Shenzhen, China</h4>
-            <p>September 2015 – June 2019</p>
-          </div>
-        </div>
       </div>
     </section>
   </section>
 
   <script>
-    // Toggle mobile navigation menu
+    // 移动端菜单切换
     function toggleNavigation() {
       let nav = document.getElementById("mobile-nav");
       if (nav.classList.contains('w3-show')) {
@@ -272,32 +259,29 @@
       }
     }
 
-    // Panel switching function
+    // 面板切换函数
     function showPanel(panelName) {
-      // hide all panels
       const panels = document.querySelectorAll('.panel');
       panels.forEach(p => p.style.display = 'none');
       
-      // show selected panel
-      const activePanel = document.getElementById(panelName + '-panel');
+      let activePanelId = panelName + '-panel';
+      const activePanel = document.getElementById(activePanelId);
       if (activePanel) {
         activePanel.style.display = 'block';
       } else {
-        // fallback to home if something goes wrong
         document.getElementById('home-panel').style.display = 'block';
       }
 
-      // update active class on desktop nav buttons
+      // 更新桌面导航高亮
       const tablinks = document.querySelectorAll('.tablink');
       tablinks.forEach(btn => {
         btn.classList.remove('nav-active', 'w3-text-green', 'w3-border-green');
-        // check if the button's onclick roughly matches the panel
         if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(panelName)) {
           btn.classList.add('nav-active', 'w3-text-green', 'w3-border-green');
         }
       });
 
-      // also update mobile nav active style (simple visual)
+      // 更新移动导航高亮
       const mobileLinks = document.querySelectorAll('#mobile-nav a');
       mobileLinks.forEach(link => {
         link.classList.remove('w3-text-green', 'w3-border-green');
@@ -307,22 +291,17 @@
       });
     }
 
-    // initialise: show home panel by default and set active button
+    // 初始化：显示HOME面板，高亮HOME按钮
     window.onload = function() {
-      // hide all panels initially via style? they already have inline style, but ensure home is visible
       document.querySelectorAll('.panel').forEach(p => p.style.display = 'none');
       document.getElementById('home-panel').style.display = 'block';
       
-      // set active class on home button
       const homeBtn = Array.from(document.querySelectorAll('.tablink')).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes('home'));
       if (homeBtn) {
         homeBtn.classList.add('nav-active', 'w3-text-green', 'w3-border-green');
       }
-
-      // feather icons
       feather.replace();
     };
   </script>
-  <!-- ensure feather icons run after dynamic content (already called in onload) -->
 </body>
 </html>
