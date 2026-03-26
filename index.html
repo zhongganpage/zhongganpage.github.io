@@ -149,6 +149,76 @@
       border-left: 3px solid #ffc107;
       padding-left: 1rem;
     }
+
+   /* 论文列表容器：垂直排列，设置间距 */
+.papers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;  /* 论文卡片之间的空隙 */
+  margin-top: 1rem;
+}
+
+/* 单个论文卡片 */
+.paper-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.2rem;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+/* 悬停效果：放大、阴影、边框变色 */
+.paper-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #ffc107;
+}
+
+/* 论文标题样式 */
+.paper-title {
+  margin-bottom: 0.5rem;
+}
+
+/* 元信息样式 */
+.paper-meta {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+/* 摘要区域默认隐藏 */
+.paper-abstract {
+  display: none;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed #eee;
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* 链接区域样式 */
+.paper-links {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.paper-links a {
+  text-decoration: none;
+  color: #0077cc;
+}
+
+.paper-links a:hover {
+  text-decoration: underline;
+}
+
+/* 悬停时显示摘要 */
+.paper-item:hover .paper-abstract {
+  display: block;
+}
+
+    
   </style>
 </head>
 <body>   
@@ -272,19 +342,92 @@
           <div class="w3-container w3-margin-top-2">
   
             <!-- PUBLICATIONS 区块 -->
-            <div class="research-section">
-              <h3 class="w3-border-amber">PUBLICATIONS</h3>
-              <ul class="w3-ul" style="font-weight: 500;">
-                <li><b><font size="+1"><a href="https://arxiv.org/abs/2508.08208">On the attainability of the singular Wiener bound</a></font></b> arXiv: 2508.08208, accepted by SIAM Journal on Mathematical Analysis</li>
-                <li><b><font size="+1"><a href="https://arxiv.org/abs/2505.17298">Homogenization of a vertical oscillating Neumann condition</a></font></b> Joint with William Feldman, arXiv: 2505.17298, accepted by Archive for Rational Mechanics and Analysis</li>
-                <li><b><font size="+1"><a href="https://doi.org/10.1016/j.matpur.2026.103863">Regularity theory of a gradient degenerate Neumann problem</a></font></b> Joint with William Feldman, Journal de Mathématiques Pures et Appliquées, Volume 209, May 2026, 103863</li>
-                <li><b><font size="+1"><a href="https://arxiv.org/abs/2212.03701">Is mean curvature flow a gradient flow?</a></font></b> arXiv: 2212.03701 (to appear in Proceedings of the American Mathematical Society)</li>
-                <li><b><font size="+1"><a href="https://doi.org/10.1016/j.jde.2021.02.024">Homogenization of enhancing thin layers</a></font></b> Journal of Differential Equations, Volume 282, 2021, Pages 330-369</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+           <!-- 原 RESEARCH 面板中的 PUBLICATIONS 区块替换为以下内容 -->
+<div class="research-section">
+  <h3 class="w3-border-amber">PUBLICATIONS</h3>
+  <div class="papers-list">
+    <!-- 论文 1 -->
+    <div class="paper-item">
+      <div class="paper-title">
+        <b><font size="+1"><a href="https://arxiv.org/abs/2508.08208">On the attainability of the singular Wiener bound</a></font></b>
+      </div>
+      <div class="paper-meta">
+        arXiv: 2508.08208, accepted by SIAM Journal on Mathematical Analysis
+      </div>
+      <div class="paper-abstract">
+        <strong>Abstract:</strong> 请在此处填写论文摘要内容...
+      </div>
+      <div class="paper-links">
+        <a href="https://arxiv.org/abs/2508.08208" target="_blank">arXiv</a> 
+        <!-- 如果有 DOI 链接可添加，例如：| <a href="https://doi.org/..." target="_blank">DOI</a> -->
+      </div>
+    </div>
 
+    <!-- 论文 2 -->
+    <div class="paper-item">
+      <div class="paper-title">
+        <b><font size="+1"><a href="https://arxiv.org/abs/2505.17298">Homogenization of a vertical oscillating Neumann condition</a></font></b>
+      </div>
+      <div class="paper-meta">
+        Joint with William Feldman, arXiv: 2505.17298, accepted by Archive for Rational Mechanics and Analysis
+      </div>
+      <div class="paper-abstract">
+        <strong>Abstract:</strong> 请在此处填写论文摘要内容...
+      </div>
+      <div class="paper-links">
+        <a href="https://arxiv.org/abs/2505.17298" target="_blank">arXiv</a>
+      </div>
+    </div>
+
+    <!-- 论文 3 -->
+    <div class="paper-item">
+      <div class="paper-title">
+        <b><font size="+1"><a href="https://doi.org/10.1016/j.matpur.2026.103863">Regularity theory of a gradient degenerate Neumann problem</a></font></b>
+      </div>
+      <div class="paper-meta">
+        Joint with William Feldman, Journal de Mathématiques Pures et Appliquées, Volume 209, May 2026, 103863
+      </div>
+      <div class="paper-abstract">
+        <strong>Abstract:</strong> 请在此处填写论文摘要内容...
+      </div>
+      <div class="paper-links">
+        <a href="https://doi.org/10.1016/j.matpur.2026.103863" target="_blank">DOI</a>
+      </div>
+    </div>
+
+    <!-- 论文 4 -->
+    <div class="paper-item">
+      <div class="paper-title">
+        <b><font size="+1"><a href="https://arxiv.org/abs/2212.03701">Is mean curvature flow a gradient flow?</a></font></b>
+      </div>
+      <div class="paper-meta">
+        arXiv: 2212.03701 (to appear in Proceedings of the American Mathematical Society)
+      </div>
+      <div class="paper-abstract">
+        <strong>Abstract:</strong> 请在此处填写论文摘要内容...
+      </div>
+      <div class="paper-links">
+        <a href="https://arxiv.org/abs/2212.03701" target="_blank">arXiv</a>
+      </div>
+    </div>
+
+    <!-- 论文 5 -->
+    <div class="paper-item">
+      <div class="paper-title">
+        <b><font size="+1"><a href="https://doi.org/10.1016/j.jde.2021.02.024">Homogenization of enhancing thin layers</a></font></b>
+      </div>
+      <div class="paper-meta">
+        Journal of Differential Equations, Volume 282, 2021, Pages 330-369
+      </div>
+      <div class="paper-abstract">
+        <strong>Abstract:</strong> 请在此处填写论文摘要内容...
+      </div>
+      <div class="paper-links">
+        <a href="https://doi.org/10.1016/j.jde.2021.02.024" target="_blank">DOI</a>
+      </div>
+    </div>
+  </div>
+</div>
         <!-- THESIS 面板（保留原有结构并微调） -->
         <div id="thesis-panel" class="panel w3-container w3-margin-top-4 w3-cursive" style="display:none;">
           <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">DISSERTATION & THESES</h2>
