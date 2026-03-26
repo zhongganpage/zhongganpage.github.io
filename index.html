@@ -388,20 +388,71 @@
         }
       });
     }
+  </script>
 
-    window.onload = function() {
-      document.querySelectorAll('.panel').forEach(p => p.style.display = 'none');
-      document.getElementById('home-panel').style.display = 'block';
-      
-      const homeBtn = Array.from(document.querySelectorAll('.tablink')).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes('home'));
-      if (homeBtn) {
-        homeBtn.classList.add('nav-active', 'w3-text-green', 'w3-border-green');
+  <!-- ========= 新增代码：URL Hash 支持，刷新/链接保持当前面板 ========= -->
+  <script>
+    (function() {
+      // 获取原始 showPanel 函数并增强
+      const originalShowPanel = window.showPanel;
+
+      // 合法的面板名称列表
+      const validPanels = ['home', 'research', 'thesis', 'education', 'misc'];
+
+      // 增强后的 showPanel：调用原函数，并同步 URL hash (使用 replaceState 避免触发 hashchange)
+      window.showPanel = function(panelName) {
+        // 参数有效性保护：若传入无效面板，默认回退 home
+        let targetPanel = validPanels.includes(panelName) ? panelName : 'home';
+        
+        // 调用原始面板切换逻辑
+        originalShowPanel(targetPanel);
+        
+        // 更新 URL hash，使用 replaceState 避免触发 hashchange 事件，防止循环
+        const newHash = targetPanel;
+        if (window.location.hash !== '#' + newHash) {
+          history.replaceState(null, '', '#' + newHash);
+        }
+      };
+
+      // 根据当前 hash 恢复面板 (若 hash 无效或不存在，则显示 home 并将 hash 修正为 #home)
+      function restorePanelFromHash() {
+        let rawHash = window.location.hash.slice(1); // 去掉开头的 '#'
+        // 如果 hash 为空或不属于合法面板，则使用 home
+        let panelToShow = validPanels.includes(rawHash) ? rawHash : 'home';
+        
+        // 若当前 hash 不合法（包括空或者非法值），主动修正为合法 hash（#home）
+        if (!validPanels.includes(rawHash)) {
+          // 使用 replaceState 直接修正 URL 而不重新加载
+          if (window.location.hash !== '#home') {
+            history.replaceState(null, '', '#home');
+          }
+        }
+        
+        // 调用增强后的 showPanel（已集成 hash 同步），但注意避免在内部重复设置相同 hash 导致微小开销，无副作用
+        // 但直接调用原 showPanel 再手动同步 hash 亦可，但为了统一高亮等逻辑，使用增强版
+        // 注意：增强版 showPanel 内部会调用 originalShowPanel 并再次同步 hash，由于 hash 已经正确，再次同步不会造成问题
+        window.showPanel(panelToShow);
       }
-      const mobileHome = Array.from(document.querySelectorAll('#mobile-nav a')).find(link => link.getAttribute('onclick') && link.getAttribute('onclick').includes('home'));
-      if (mobileHome) mobileHome.classList.add('w3-text-green', 'w3-border-green');
-      
-      feather.replace();
-    };
+
+      // 监听浏览器前进/后退以及手动修改地址栏 hash 的变化
+      window.addEventListener('hashchange', function() {
+        restorePanelFromHash();
+      });
+
+      // 重写页面加载完成逻辑：保留 feather 图标替换，然后根据 hash 恢复面板
+      // 原 window.onload 已被覆盖，但原逻辑里只有面板初始化和 feather.replace，
+      // 现在我们完全接管，保留 feather.replace 并确保恢复面板
+      const originalOnload = window.onload;
+      window.onload = function(e) {
+        // 执行 feather 图标替换 (原页面中该功能保留)
+        if (typeof feather !== 'undefined' && feather.replace) {
+          feather.replace();
+        }
+        // 根据 URL hash 恢复正确的面板
+        restorePanelFromHash();
+        // 如果原来有其他 onload 逻辑，且未被覆盖，可选择性调用（但原本就只有上面这些，这里无需额外调用）
+      };
+    })();
   </script>
 </body>
 </html>
