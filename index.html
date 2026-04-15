@@ -158,13 +158,38 @@
   margin-top: 1rem;
 }
 
+.research-columns {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.research-columns .research-section {
+  flex: 1 1 48%;
+  min-width: 320px;
+}
+
+.research-columns .research-section.publications {
+  order: 1;
+}
+
+.research-columns .research-section.preprints {
+  order: 2;
+}
+
+.research-columns .research-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
 /* 单个论文卡片 */
 .paper-item {
   border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1.2rem;
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
   background-color: #fff;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   cursor: default;
 }
 
@@ -177,28 +202,29 @@
 
 /* 论文标题样式 - 更大字号，较轻字体 */
 .paper-title {
-  margin-bottom: 0.75rem;
-  font-size: 1.5rem;
-  font-weight: 500;
-  line-height: 1.2;
+  margin-bottom: 0.65rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.25;
 }
 
 /* 元信息样式 */
 .paper-meta {
-  font-size: 1.05rem;
-  color: #555;
-  margin-bottom: 0.75rem;
+  font-size: 0.98rem;
+  color: #444;
+  margin-bottom: 0.7rem;
+  line-height: 1.5;
 }
 
 /* 摘要区域默认隐藏 */
 .paper-abstract {
   display: none;
-  margin-top: 0.75rem;
-  padding-top: 0.75rem;
+  margin-top: 0.7rem;
+  padding-top: 0.7rem;
   border-top: 1px dashed #eee;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #444;
-  line-height: 1.75;
+  line-height: 1.7;
 }
 
 /* MathJax equation styling */
@@ -213,13 +239,44 @@
 
 /* 链接区域样式 - 增大字体 */
 .paper-links {
-  margin-top: 0.75rem;
-  font-size: 1rem;
+  margin-top: 0.7rem;
+  font-size: 0.96rem;
 }
 
 .paper-links a {
   text-decoration: none;
   color: #0077cc;
+}
+
+.paper-links a + a {
+  margin-left: 0.85rem;
+}
+
+/* Responsive research columns */
+@media screen and (max-width: 980px) {
+  .research-columns {
+    flex-direction: column;
+  }
+
+  .research-columns .research-section {
+    flex: 1 1 100%;
+    min-width: auto;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .paper-item {
+    padding: 0.95rem;
+  }
+
+  .paper-title {
+    font-size: 1.2rem;
+  }
+
+  .paper-meta,
+  .paper-links {
+    font-size: 0.94rem;
+  }
 }
 
 .paper-links a:hover {
@@ -315,7 +372,7 @@
       <div id="about" class="w3-container w3-margin-top-15-percent w3-cursive w3-large">
         <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;color: #ffffff">ABOUT ME</h2>
         <p class="w3-margin-top-1"> 
-          <span style="color: #ffffff">I just defended on March 19 2026 in University of Utah. My advisor is Prof. W. Feldman. I'm interested in homogenization theory, free boundary problems and shape optimization problems.</span> 
+          <span style="color: #ffffff">I just defended on March 19 2026 in University of Utah. My advisor is Prof. W. Feldman. I'm interested in analysis with applications in different scientific and engineering fields, particularly in homogenization theory, free boundary problems and shape optimization problems.</span> 
         </p>
       </div>
 
@@ -396,12 +453,10 @@
         <!-- RESEARCH 面板：论文卡片样式 -->
         <div id="research-panel" class="panel w3-container w3-margin-top-4 w3-cursive" style="display:none;">
           <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">RESEARCH</h2>
-          
-          <!-- 两列布局 -->
-          <div class="research-columns">
-            <!-- 左列：PUBLICATIONS -->
-            <div class="research-column">
-              <h3>PUBLICATIONS</h3>
+          <div class="w3-container w3-margin-top-2">
+            <!-- PUBLICATIONS 区块 -->
+            <div class="research-section">
+              <h3 class="w3-border-amber">PUBLICATIONS</h3>
               <div class="papers-list">
                 <!-- 论文 1 -->
                 <div class="paper-item">
@@ -425,13 +480,12 @@
                     <b>Homogenization of a vertical oscillating Neumann condition</b>
                   </div>
                   <div class="paper-meta">
-                    Joint with William Feldman, Archive for Rational Mechanics and Analysis, DOI: 10.1007/s00205-026-02188-2
+                    Joint with William Feldman, arXiv: 2505.17298, accepted by Archive for Rational Mechanics and Analysis
                   </div>
                   <div class="paper-abstract">
                     <strong>Abstract:</strong> We homogenize the Laplace and heat equations with the Neumann data oscillating in the "vertical" u-variable. These are simplified models for interface motion in heterogeneous media, particularly capillary contact lines. The homogenization limit reveals a pinning effect at zero tangential slope, leading to a novel singularly anisotropic pinned Neumann condition. The singular pinning creates an unconstrained contact set, generalizing the contact set in the classical thin obstacle problem. We establish a comparison principle for the heat equation with this new type of boundary condition. The comparison principle enables a proof of homogenization via the method of half-relaxed limits from viscosity solution theory. Our work also demonstrates, for the first time in a PDE problem in multiple dimensions, the emergence of rate-independent pinning from gradient flows with wiggly energies. Prior limit theorems of this type, in rate-independent contexts, were limited to ODEs and PDEs in one dimension.
                   </div>
                   <div class="paper-links">
-                    <a href="https://doi.org/10.1007/s00205-026-02188-2" target="_blank">DOI</a>
                     <a href="https://arxiv.org/abs/2505.17298" target="_blank">arXiv</a>
                   </div>
                 </div>
@@ -448,8 +502,7 @@
                     <strong>Abstract:</strong> We study the regularity and comparison principle for a gradient degenerate Neumann problem. The problem is a generalization of the Signorini or thin obstacle problem which appears in the study of certain singular anisotropic free boundary problems arising from homogenization. In scaling terms, the problem is critical since the gradient degeneracy and the Neumann PDE operator are of the same order. We show the (optimal) \(C^{1,\frac{1}{2}}\) regularity in dimension \(d=2\) and we show the same regularity result in \(d\geq 3\) conditional on the assumption that the degenerate values of the solution do not accumulate. We also prove a comparison principle characterizing minimal supersolutions, which we believe will have applications to homogenization and other related scaling limits.
                   </div>
                   <div class="paper-links">
-                    <a href="https://doi.org/10.1016/j.matpur.2026.103863" target="_blank">DOI</a>
-                    <a href="https://arxiv.org/abs/2406.06614" target="_blank">arXiv</a>
+                    <a href="https://arxiv.org/abs/2406.06614" target="_blank">arXiv</a> | <a href="https://doi.org/10.1016/j.matpur.2026.103863" target="_blank">DOI</a>
                   </div>
                 </div>
 
@@ -481,8 +534,7 @@
                     <strong>Abstract:</strong> This paper derives an explicit formula for the effective diffusion tensor by using the solutions to some effective cell problems after homogenizing Road effective boundary conditions (EBCs). The concept of Road EBCs was proposed recently by H. Li and X. Wang, and in this paper, we extend the effective conditions on closed curves to those on patterns, especially on the included nodes. We also prove that homogenization process commutes with the derivation of Road EBCs. By analyzing the effective diffusion tensor, we obtain several rules for maximizing its trace with given Road-effective-diffusivity/scale and length/scale in each cell and define a notion of balanced patterns. Moreover, we give an estimate of the trace of effective diffusion tensor of general patterns as Road-effective-diffusivity/scale goes to infinity.
                   </div>
                   <div class="paper-links">
-                    <a href="https://doi.org/10.1016/j.jde.2021.02.024" target="_blank">DOI</a>
-                    <a href="https://arxiv.org/abs/2010.12541" target="_blank">arXiv</a>
+                    <a href="https://arxiv.org/abs/2010.12541" target="_blank">arXiv</a> | <a href="https://doi.org/10.1016/j.jde.2021.02.024" target="_blank">DOI</a>
                   </div>
                 </div>
               </div>
