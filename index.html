@@ -14,24 +14,36 @@
   <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
   <style>
     body {
-      margin: 0 20px 20px;
+      margin: 0 20px 20px 0;
       font-family: sans-serif;
       line-height: 1.4;
     }
     .image-section {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 23%;
       display: flex;
       flex-direction: column;
-      top: 20px;
-      bottom: 20px;
-      height: calc(100vh - 40px);
-      overflow: auto;
+      background-color: #111;
+      color: #ffffff;
+      overflow-y: auto;
+      padding-top: 20px;
     }
     .image-section > img {
       display: block;
       margin: 0 auto;
     }
-    #sidebar-poem {
-      margin-top: auto;
+    #bottom-poem {
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      font-style: italic;
+      text-align: right;
+      color: #555;
+      margin: 2rem 0 1rem;
+      padding: 0;
+      background: transparent;
     }
     figure {
       max-width: 1400px;
@@ -400,14 +412,11 @@
         </div>
       </div>
 
-      <!-- 诗句置于左边栏最底部 -->
-      <div id="sidebar-poem" class="w3-container w3-margin-top w3-cursive" style="color: #ffffff; margin-top: 2rem;">
-        <p style="font-style: italic; font-size:x-large; color: #ffffff;">溯洄从之，道阻且长。溯游从之，宛在水中央。</p>
-      </div>
+  
     </section>
 
     <!-- 右侧动态面板 -->
-    <section class="w3-threequarter w3-padding-large w3-right">
+    <section class="w3-threequarter w3-padding-large w3-right" style="margin-left: 23%;">
       <!-- 桌面导航栏 -->
       <div class="w3-container w3-padding-large w3-border-bottom w3-hide-small">
         <div class="desktop-nav">
@@ -463,6 +472,7 @@
               there are already hysteretic pinning phenomenon for positive \(\varepsilon\). I want to thank 许钊箐 (Zhaoqing Xu) for the help in generating the two figures on the right.
             </figcaption>
           </figure>
+
         </div>
 
         <!-- RESEARCH 面板：论文卡片样式 -->
@@ -733,7 +743,25 @@
     </section>
   </section>
 
+  <div id="bottom-poem" class="w3-container w3-cursive">
+    <p style="margin:0;">人闲桂花落，夜静春山空。月出惊山鸟，时鸣春涧中。</p>
+  </div>
+
   <script>
+    function updateBottomPoemVisibility() {
+      const bottomPoem = document.getElementById('bottom-poem');
+      if (!bottomPoem) return;
+      if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 50) {
+        bottomPoem.style.opacity = '1';
+      } else {
+        bottomPoem.style.opacity = '0';
+      }
+    }
+
+    window.addEventListener('scroll', updateBottomPoemVisibility);
+    window.addEventListener('resize', updateBottomPoemVisibility);
+    window.addEventListener('load', updateBottomPoemVisibility);
+
     function toggleNavigation() {
       let nav = document.getElementById("mobile-nav");
       if (nav.classList.contains('w3-show')) {
