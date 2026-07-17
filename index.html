@@ -216,15 +216,47 @@
   border-radius: 10px;
   padding: 1rem 1.1rem;
   background-color: #fff;
-  transition: all 0.25s ease;
-  cursor: default;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  cursor: pointer;
+  position: relative;
 }
 
-/* 悬停效果：放大、阴影、边框变色 */
+/* 悬停时增强边框与轻微抬升，明确表示可点击 */
 .paper-item:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.34), 0 8px 18px rgba(0, 0, 0, 0.12);
+  border-color: #f4b400;
+  transform: translateY(-2px);
+}
+
+.paper-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(2px);
+  z-index: 1000;
+  display: none;
+}
+
+.paper-overlay.is-visible {
+  display: block;
+}
+
+.paper-item.is-active {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 860px);
+  max-height: min(82vh, 760px);
+  overflow-y: auto;
+  z-index: 1001;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.24);
   border-color: #ffc107;
+  padding: 1.3rem 1.4rem;
+}
+
+.paper-item.is-active .paper-abstract {
+  display: block;
 }
 
 /* 论文标题样式 - 更大字号，较轻字体 */
@@ -310,10 +342,6 @@
   text-decoration: underline;
 }
 
-/* 悬停时显示摘要 */
-.paper-item:hover .paper-abstract {
-  display: block;
-}
 
 /* 两列研究版面布局 */
 .research-columns {
@@ -399,7 +427,7 @@
       <div id="about" class="w3-container w3-margin-top-15-percent w3-cursive w3-large">
         <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;color: #ffffff">ABOUT ME</h2>
         <p class="w3-margin-top-1"> 
-          <span style="color: #ffffff">I just defended on March 19 2026 in University of Utah. My advisor is Prof. W. Feldman. I'm interested in analysis with applications in different scientific and engineering fields, particularly in homogenization theory, free boundary problems and shape optimization problems.</span> 
+          <span style="color: #ffffff">I just defended on March 19 2026 in University of Utah. My advisor is Prof. W. Feldman. I'm interested in analysis with applications in different scientific, geometric and engineering fields, particularly in homogenization theory, free boundary problems and shape optimization problems.</span> 
         </p>
       </div>
 
@@ -801,6 +829,47 @@
         }
       });
     }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const overlay = document.createElement('div');
+      overlay.className = 'paper-overlay';
+      document.body.appendChild(overlay);
+
+      const cards = Array.from(document.querySelectorAll('.paper-item'));
+      let activeCard = null;
+
+      function closeExpandedCard() {
+        if (activeCard) {
+          activeCard.classList.remove('is-active');
+          overlay.classList.remove('is-visible');
+          activeCard = null;
+        }
+      }
+
+      cards.forEach(function (card) {
+        card.addEventListener('click', function (event) {
+          event.stopPropagation();
+
+          if (activeCard === card) {
+            closeExpandedCard();
+            return;
+          }
+
+          closeExpandedCard();
+          activeCard = card;
+          card.classList.add('is-active');
+          overlay.classList.add('is-visible');
+        });
+      });
+
+      overlay.addEventListener('click', closeExpandedCard);
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          closeExpandedCard();
+        }
+      });
+    });
   </script>
 
   <!-- URL Hash 支持，刷新/链接保持当前面板 -->
