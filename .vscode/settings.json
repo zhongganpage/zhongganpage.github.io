@@ -12,7 +12,9 @@
                 "-outdir=%OUTDIR%",
                 "%DOC%"
             ],
-            "env": {}
+            "env": {
+                "PATH": "D:\\latex-miktex\\strawPerl\\perl\\bin;%PATH%"
+            }
         },
         {
             "name": "pdflatex",
