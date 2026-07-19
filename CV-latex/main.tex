@@ -1,0 +1,107 @@
+
+\documentclass[letterpaper,11pt]{article}
+
+% Choose bibliography style for formatting list of publications
+\usepackage[style=ieee,url=false,doi=false,maxbibnames=99,sorting=ydnt,dashed=false]{biblatex}
+\bibliography{papers}
+
+% Choose theme, e.g. black, RedViolet, ForestGreen, MidnightBlue
+\def\theme{MidnightBlue}
+
+% More predefined colors can be found in 
+% https://en.wikibooks.org/wiki/LaTeX/Colors
+% Example photograph taken from Wikimedia Commons
+% https://commons.wikimedia.org/wiki/File:Kiara_Krit_passport.jpg
+
+\usepackage{simplecv}
+
+\boldname{Surname}{Name}{N.}
+
+\begin{document}
+
+% Heading
+\headinginline{\texttt{Zhonggan Huang}}{
+Email: \email{zhonggan@math.utah.edu} \\
+Updated on: \today
+}
+
+% \headingphoto{Name Surname}{
+%     Website: \website{example.com} \\ 
+%     Email: \email{example@example.edu} \\
+%     LinkedIn: \linkedin{name-surname} \\
+%     GitHub: \github{example}
+% }{photo.jpg}
+
+% Page One
+\import{sections/}{researchinterests.tex}
+
+
+\import{sections/}{education.tex}
+%\import{sections/}{awards.tex}
+%\import{sections/}{teaching.tex}
+
+
+
+
+% \section{Preprints}
+
+% \orderedouterlist{
+
+
+
+
+
+
+
+
+% }
+\import{sections/}{awards.tex}
+
+
+\section{Preprints}
+ \orderedouterlist{
+
+
+  \entry{\textbf{On the continuum limit of t-SNE for data visualization}, arXiv preprint arXiv: 2604.12041 (2026). Joint with Jeff Calder, Ryan Murray and Adam Pickarski}
+
+}
+
+
+
+\section{Publications}
+ \orderedouterlist{
+
+
+  \entry{\textbf{On the attainability of the singular Wiener bound}, arXiv preprint arXiv: 2508.08208 (2025). Accepted by \emph{SIAM Journal on Mathematical Analysis}, submitted in September 2025}
+
+ \entry{\textbf{Homogenization of a vertical oscillating Neumann condition}, joint with William M Feldman, {Archive for Rational Mechanics and Analysis, 250, 29 (2026). https://doi.org/10.1007/s00205-026-02188-2}}
+
+
+
+  \entry{\textbf{Regularity theory of a gradient degenerate Neumann problem}, joint with William M Feldman, Journal de Math\'{e}matiques Pures et Appliqu\'{e}es, Volume 209, May 2026, 103863, https://doi.org/10.1016/j.matpur.2026.103863}
+
+ \entry{\textbf{Is mean curvature flow a gradient flow?} arXiv: 2212.03701 (2022). \emph{Proceedings of American Mathematical Society}, DOI: https://doi.org/10.1090/proc/16572}
+ 
+
+ 
+ \entry{\textbf{Homogenization of enhancing thin layers,} Journal of Differential Equations,
+Volume 282,
+2021,
+Pages 330-369,
+ISSN 0022-0396,
+https://doi.org/10.1016/j.jde.2021.02.024.}}
+
+
+
+
+\import{sections/}{talks.tex}
+
+\import{sections/}{seminar.tex}
+
+\import{sections/}{teaching.tex}
+
+%\import{sections/}{graduatecourse.tex}
+
+
+% \import{sections/}{recommendations.tex}
+\end{document}
