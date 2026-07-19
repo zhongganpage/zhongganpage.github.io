@@ -219,6 +219,9 @@
   transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
   cursor: pointer;
   position: relative;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* 悬停时增强边框与轻微抬升，明确表示可点击 */
@@ -925,7 +928,10 @@
       }
 
       cards.forEach(function (card) {
-        card.addEventListener('click', function (event) {
+        let suppressNextClick = false;
+
+        function activateCard(event) {
+          event.preventDefault();
           event.stopPropagation();
 
           if (activeCard === card) {
@@ -937,6 +943,32 @@
           activeCard = card;
           card.classList.add('is-active');
           overlay.classList.add('is-visible');
+        }
+
+        card.addEventListener('pointerup', function (event) {
+          if (event.pointerType === 'touch') {
+            suppressNextClick = true;
+            activateCard(event);
+          } else if (event.pointerType === 'mouse' || event.pointerType === 'pen') {
+            activateCard(event);
+          }
+        });
+
+        card.addEventListener('click', function (event) {
+          if (suppressNextClick) {
+            suppressNextClick = false;
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+          }
+
+          if (event.detail > 1) {
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+          }
+
+          activateCard(event);
         });
       });
 
