@@ -348,6 +348,38 @@
   display: none !important;
 }
 
+.paper-return-trigger,
+.research-section .paper-item .paper-links a.paper-return-trigger {
+  display: none;
+  border: 1px solid #999;
+  background: #f0f0f0;
+  color: #555;
+  padding: 0.32rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.paper-return-trigger:hover {
+  background: #ddd;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.paper-item.is-active .paper-return-trigger,
+.research-section .paper-item.is-active .paper-links a.paper-return-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.research-section .paper-return-trigger {
+  margin-left: auto;
+}
+
 /* 论文标题样式 - 更大字号，较轻字体 */
 .paper-title {
   margin-bottom: 0.5rem;
@@ -1044,6 +1076,9 @@ The third project (Chapter 5) addresses whether mean curvature flow can be reali
       cards.forEach(function (card) {
         const isResearch = card.closest('.research-section') !== null;
 
+        var trigger;
+        var returnBtn;
+
         if (isResearch) {
           let paperLinks = card.querySelector('.paper-links');
           if (!paperLinks) {
@@ -1073,52 +1108,58 @@ The third project (Chapter 5) addresses whether mean curvature flow can be reali
             paperLinks.appendChild(arxivChip);
           }
 
-          const trigger = document.createElement('a');
+          trigger = document.createElement('a');
           trigger.href = '#';
           trigger.className = 'paper-chip paper-abstract-trigger';
           trigger.textContent = 'Abstract';
           paperLinks.appendChild(trigger);
 
-          trigger.addEventListener('click', function (event) {
-            event.preventDefault();
-            event.stopPropagation();
-
-            if (activeCard === card) {
-              closeExpandedCard();
-              return;
-            }
-
-            closeExpandedCard();
-            activeCard = card;
-            card.classList.add('is-active');
-            overlay.classList.add('is-visible');
-          });
+          returnBtn = document.createElement('a');
+          returnBtn.href = '#';
+          returnBtn.className = 'paper-return-trigger';
+          returnBtn.textContent = 'return';
+          paperLinks.appendChild(returnBtn);
         } else {
           if (!card.querySelector('.paper-abstract-trigger')) {
-            const trigger = document.createElement('a');
+            trigger = document.createElement('a');
             trigger.href = '#';
             trigger.className = 'paper-chip paper-abstract-trigger';
             trigger.textContent = 'Abstract';
             card.appendChild(trigger);
+          } else {
+            trigger = card.querySelector('.paper-abstract-trigger');
           }
 
-          const trigger = card.querySelector('.paper-abstract-trigger');
-
-          trigger.addEventListener('click', function (event) {
-            event.preventDefault();
-            event.stopPropagation();
-
-            if (activeCard === card) {
-              closeExpandedCard();
-              return;
-            }
-
-            closeExpandedCard();
-            activeCard = card;
-            card.classList.add('is-active');
-            overlay.classList.add('is-visible');
-          });
+          returnBtn = document.createElement('a');
+          returnBtn.href = '#';
+          returnBtn.className = 'paper-return-trigger';
+          returnBtn.textContent = 'return';
+          returnBtn.style.position = 'absolute';
+          returnBtn.style.right = '0.9rem';
+          returnBtn.style.bottom = '0.8rem';
+          card.appendChild(returnBtn);
         }
+
+        trigger.addEventListener('click', function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+
+          if (activeCard === card) {
+            closeExpandedCard();
+            return;
+          }
+
+          closeExpandedCard();
+          activeCard = card;
+          card.classList.add('is-active');
+          overlay.classList.add('is-visible');
+        });
+
+        returnBtn.addEventListener('click', function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+          closeExpandedCard();
+        });
       });
 
       overlay.addEventListener('click', closeExpandedCard);
