@@ -974,8 +974,10 @@ The third project (Chapter 5) addresses whether mean curvature flow can be reali
       if (!bottomPoem) return;
       if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 50) {
         bottomPoem.style.opacity = '1';
+        bottomPoem.style.pointerEvents = 'auto';
       } else {
         bottomPoem.style.opacity = '0';
+        bottomPoem.style.pointerEvents = 'none';
       }
     }
 
