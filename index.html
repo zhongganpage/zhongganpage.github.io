@@ -224,6 +224,15 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+/* 确保 thesis 等非 research 卡片的 paper-links 使用 flex 布局，与 research 卡片一致 */
+.paper-item .paper-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
 /* 悬停时增强边框与轻微抬升，明确表示可点击 */
 .paper-item:hover {
   box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.34), 0 8px 18px rgba(0, 0, 0, 0.12);
@@ -374,9 +383,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  color: #555;
 }
 
-.research-section .paper-return-trigger {
+.research-section .paper-return-trigger,
+.paper-item .paper-links .paper-return-trigger {
   margin-left: auto;
 }
 
@@ -1120,12 +1131,19 @@ The third project (Chapter 5) addresses whether mean curvature flow can be reali
           returnBtn.textContent = 'return';
           paperLinks.appendChild(returnBtn);
         } else {
+          let paperLinks = card.querySelector('.paper-links');
+          if (!paperLinks) {
+            paperLinks = document.createElement('div');
+            paperLinks.className = 'paper-links';
+            card.appendChild(paperLinks);
+          }
+
           if (!card.querySelector('.paper-abstract-trigger')) {
             trigger = document.createElement('a');
             trigger.href = '#';
             trigger.className = 'paper-chip paper-abstract-trigger';
             trigger.textContent = 'Abstract';
-            card.appendChild(trigger);
+            paperLinks.appendChild(trigger);
           } else {
             trigger = card.querySelector('.paper-abstract-trigger');
           }
@@ -1134,10 +1152,7 @@ The third project (Chapter 5) addresses whether mean curvature flow can be reali
           returnBtn.href = '#';
           returnBtn.className = 'paper-return-trigger';
           returnBtn.textContent = 'return';
-          returnBtn.style.position = 'absolute';
-          returnBtn.style.right = '0.9rem';
-          returnBtn.style.bottom = '0.8rem';
-          card.appendChild(returnBtn);
+          paperLinks.appendChild(returnBtn);
         }
 
         trigger.addEventListener('click', function (event) {
