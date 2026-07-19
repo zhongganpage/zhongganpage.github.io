@@ -214,7 +214,7 @@
 .paper-item {
   border: 1px solid #ddd;
   border-radius: 10px;
-  padding: 1rem 1.1rem;
+  padding: 0.9rem 1rem 0.9rem;
   background-color: #fff;
   transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
   cursor: pointer;
@@ -229,6 +229,87 @@
   box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.34), 0 8px 18px rgba(0, 0, 0, 0.12);
   border-color: #f4b400;
   transform: translateY(-2px);
+}
+
+.paper-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #f4b400;
+  background: #fff8e1;
+  color: #8a6200;
+  padding: 0.32rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.paper-chip:hover {
+  background: #ffe082;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+}
+
+.paper-abstract-trigger {
+  position: absolute;
+  right: 0.9rem;
+  bottom: 0.8rem;
+  border: 1px solid #f4b400;
+  background: #fff8e1;
+  color: #8a6200;
+  padding: 0.32rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.paper-abstract-trigger:hover {
+  background: #ffe082;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.research-section .paper-item .paper-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+.research-section .paper-item .paper-links a {
+  border: 1px solid #f4b400;
+  background: #fff8e1;
+  color: #8a6200;
+  padding: 0.32rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.research-section .paper-item .paper-links a:hover {
+  background: #ffe082;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+}
+
+.research-section .paper-abstract-trigger {
+  position: static;
+  margin-left: auto;
 }
 
 .paper-overlay {
@@ -260,6 +341,11 @@
 
 .paper-item.is-active .paper-abstract {
   display: block;
+}
+
+.paper-item.is-active .paper-abstract-trigger,
+.research-section .paper-item.is-active .paper-links a.paper-abstract-trigger {
+  display: none !important;
 }
 
 /* 论文标题样式 - 更大字号，较轻字体 */
@@ -301,17 +387,40 @@
 
 /* 链接区域样式 - 增大字体 */
 .paper-links {
-  margin-top: 0.6rem;
+  margin-top: 0.5rem;
   font-size: 0.9rem;
 }
 
 .paper-links a {
   text-decoration: none;
-  color: #0077cc;
+  color: #8a6200;
 }
 
 .paper-links a + a {
-  margin-left: 0.85rem;
+  margin-left: 0.5rem;
+}
+
+.paper-links a.paper-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #f4b400;
+  background: #fff8e1;
+  color: #8a6200;
+  padding: 0.32rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.paper-links a.paper-chip:hover {
+  background: #ffe082;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
 }
 
 /* Responsive research columns */
@@ -716,7 +825,10 @@
                   <strong>Defense Date:</strong> March 19, 2026
                 </div>
                 <div class="paper-abstract">
-                  <strong>Abstract:</strong> This dissertation consists of three projects in the analysis of partial differential equations and geometric variational problems, motivated by questions arising in homogenization theory, free boundary problems, shape optimization and geometric analysis. The unifying theme is the rigorous characterization of singular limits and extremal structures from scientific or engineering problems, where classical notions and techniques break down. We will also discuss the results in this dissertation in a slightly broader and raise some challenging problems.
+                  <strong>Abstract:</strong> This dissertation consists of three projects in analysis, unified by the rigorous characterization of singular limits and extremal structures in homogenization theory, free boundary problems, shape optimization, and geometric analysis.
+The first project (Chapter 2) studies optimal effective conductivity bounds for composite materials with lower-dimensional conductive phases. We characterize the attainability of the classical Wiener bounds: for the lower bound we give a topological condition on the supporting network, and for the upper bound we connect conductance maximality to area criticality via a varifold correspondence, yielding pointwise dimension bounds for conductance maximizers.
+The second project (Chapters 3–4), joint with William Feldman, studies homogenization of elliptic and parabolic equations with rapidly oscillating Neumann data. We prove the emergence of a singularly pinned rate-independent boundary condition — the first such multi-dimensional PDE example — and develop optimal regularity theory for the resulting gradient-degenerate Neumann problem.
+The third project (Chapter 5) addresses whether mean curvature flow can be realized as a genuine gradient flow under a nondegenerate metric. We prove definitively that, for two natural metric structures on planar curves, no such gradient flow representation exists.
                 </div>
                 <div class="paper-links">
                   <a href="./papers/Dissertation_Zhonggan_Revised.pdf" target="_blank">[PDF] Download Dissertation</a>
@@ -928,44 +1040,83 @@
       }
 
       cards.forEach(function (card) {
-        let touchTriggered = false;
+        const isResearch = card.closest('.research-section') !== null;
 
-        function activateCard(event) {
-          event.preventDefault();
-          event.stopPropagation();
+        if (isResearch) {
+          let paperLinks = card.querySelector('.paper-links');
+          if (!paperLinks) {
+            paperLinks = document.createElement('div');
+            paperLinks.className = 'paper-links';
+            card.appendChild(paperLinks);
+          }
 
-          if (activeCard === card) {
+          const doiLink = Array.from(card.querySelectorAll('a')).find(function (link) {
+            return (link.textContent || '').trim().toLowerCase() === 'doi';
+          });
+          const arxivLink = Array.from(card.querySelectorAll('a')).find(function (link) {
+            return (link.textContent || '').trim().toLowerCase() === 'arxiv';
+          });
+
+          paperLinks.innerHTML = '';
+
+          if (doiLink) {
+            const doiChip = doiLink.cloneNode(true);
+            doiChip.classList.add('paper-chip');
+            paperLinks.appendChild(doiChip);
+          }
+
+          if (arxivLink) {
+            const arxivChip = arxivLink.cloneNode(true);
+            arxivChip.classList.add('paper-chip');
+            paperLinks.appendChild(arxivChip);
+          }
+
+          const trigger = document.createElement('a');
+          trigger.href = '#';
+          trigger.className = 'paper-chip paper-abstract-trigger';
+          trigger.textContent = 'Abstract';
+          paperLinks.appendChild(trigger);
+
+          trigger.addEventListener('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            if (activeCard === card) {
+              closeExpandedCard();
+              return;
+            }
+
             closeExpandedCard();
-            return;
+            activeCard = card;
+            card.classList.add('is-active');
+            overlay.classList.add('is-visible');
+          });
+        } else {
+          if (!card.querySelector('.paper-abstract-trigger')) {
+            const trigger = document.createElement('a');
+            trigger.href = '#';
+            trigger.className = 'paper-chip paper-abstract-trigger';
+            trigger.textContent = 'Abstract';
+            card.appendChild(trigger);
           }
 
-          closeExpandedCard();
-          activeCard = card;
-          card.classList.add('is-active');
-          overlay.classList.add('is-visible');
+          const trigger = card.querySelector('.paper-abstract-trigger');
+
+          trigger.addEventListener('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            if (activeCard === card) {
+              closeExpandedCard();
+              return;
+            }
+
+            closeExpandedCard();
+            activeCard = card;
+            card.classList.add('is-active');
+            overlay.classList.add('is-visible');
+          });
         }
-
-        card.addEventListener('touchend', function (event) {
-          touchTriggered = true;
-          activateCard(event);
-        }, { passive: false });
-
-        card.addEventListener('click', function (event) {
-          if (touchTriggered) {
-            touchTriggered = false;
-            event.preventDefault();
-            event.stopPropagation();
-            return;
-          }
-
-          if (event.detail > 1) {
-            event.preventDefault();
-            event.stopPropagation();
-            return;
-          }
-
-          activateCard(event);
-        });
       });
 
       overlay.addEventListener('click', closeExpandedCard);
