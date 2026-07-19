@@ -928,7 +928,7 @@
       }
 
       cards.forEach(function (card) {
-        let suppressNextClick = false;
+        let touchTriggered = false;
 
         function activateCard(event) {
           event.preventDefault();
@@ -945,18 +945,14 @@
           overlay.classList.add('is-visible');
         }
 
-        card.addEventListener('pointerup', function (event) {
-          if (event.pointerType === 'touch') {
-            suppressNextClick = true;
-            activateCard(event);
-          } else if (event.pointerType === 'mouse' || event.pointerType === 'pen') {
-            activateCard(event);
-          }
-        });
+        card.addEventListener('touchend', function (event) {
+          touchTriggered = true;
+          activateCard(event);
+        }, { passive: false });
 
         card.addEventListener('click', function (event) {
-          if (suppressNextClick) {
-            suppressNextClick = false;
+          if (touchTriggered) {
+            touchTriggered = false;
             event.preventDefault();
             event.stopPropagation();
             return;
