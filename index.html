@@ -498,6 +498,25 @@
 }
 
 
+/* 移动端跳转到 Preprints 的链接（桌面端隐藏） */
+.preprints-jump {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #f4b400;
+  text-decoration: none;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+.preprints-jump:hover {
+  text-decoration: underline;
+}
+@media screen and (min-width: 981px) {
+  .preprints-jump {
+    display: none;
+  }
+}
+
 /* 两列研究版面布局 */
 .research-columns {
   display: flex;
@@ -743,7 +762,7 @@
           <div class="research-columns w3-margin-top-2">
             <!-- 左列：PUBLICATIONS 区块 -->
             <div class="research-section publications">
-              <h3 class="w3-border-amber">PUBLICATIONS</h3>
+              <h3 class="w3-border-amber">PUBLICATIONS <a href="javascript:void(0)" onclick="document.getElementById('preprints-target').scrollIntoView({behavior:'smooth'});return false;" class="preprints-jump">Preprints »</a></h3>
               <div class="papers-list">
                 <!-- 论文 1 -->
                 <div class="paper-item">
@@ -834,7 +853,7 @@
 
             <!-- 右列：PREPRINTS -->
             <div class="research-section preprints">
-              <h3>PREPRINTS</h3>
+              <h3 id="preprints-target">PREPRINTS</h3>
               <div class="papers-list">
                 <!-- Preprint 1 (new) -->
                 <div class="paper-item">
