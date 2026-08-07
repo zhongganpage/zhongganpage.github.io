@@ -515,6 +515,10 @@
   .preprints-jump {
     display: none;
   }
+  /* AI-repositories 跳转按钮：桌面端也显示（该区块在下方整行） */
+  .ai-jump {
+    display: inline-block;
+  }
 }
 
 /* 两列研究版面布局 */
@@ -856,7 +860,7 @@
 
             <!-- 右列：PREPRINTS -->
             <div class="research-section preprints">
-              <h3 id="preprints-target">PREPRINTS</h3>
+              <h3 id="preprints-target">PREPRINTS <a href="javascript:void(0)" onclick="document.getElementById('ai-repositories-target').scrollIntoView({behavior:'smooth'});return false;" class="preprints-jump ai-jump">AI-repositories »</a></h3>
               <div class="papers-list">
                 <!-- Preprint 1 (new) -->
                 <div class="paper-item">
@@ -890,6 +894,29 @@
                   <div class="paper-links">
                     <a href="https://arxiv.org/abs/2604.12041" target="_blank">arXiv</a>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI-REPOSITORIES -->
+          <div class="research-section ai-repositories" style="margin-top: 2rem;">
+            <h3 id="ai-repositories-target">AI-REPOSITORIES</h3>
+            <div class="papers-list">
+              <!-- AI Repository 1 -->
+              <div class="paper-item">
+                <div class="paper-title">
+                  <b>Spell — An adversarial multi-agent prover</b>
+                </div>
+                <div class="paper-meta">
+                  GitHub: zhongganpage/Spell (public), MIT License
+                </div>
+                <div class="paper-abstract">
+                  <strong>About:</strong> A protocol that turns a rough mathematical idea into a reviewed manuscript using distrustful AI agents, in &le;8-hour runs with human decisions between runs. Every run ends with a deliverable and a decision list for the user; the dossier carries the state across runs.
+                  <br><strong>Keywords:</strong> Multi-agent systems, theorem proving, LLM agents, adversarial review, mathematical research
+                </div>
+                <div class="paper-links">
+                  <a href="https://github.com/zhongganpage/Spell" target="_blank">GitHub</a>
                 </div>
               </div>
             </div>
@@ -1163,6 +1190,17 @@ The third project (Chapter 5) addresses whether mean curvature flow can be reali
             arxivChip.classList.add('paper-chip');
             paperLinks.appendChild(arxivChip);
           }
+
+          // 保留其他链接（如 GitHub）作为 chip
+          const otherLinks = Array.from(card.querySelectorAll('a')).filter(function (link) {
+            const t = (link.textContent || '').trim().toLowerCase();
+            return t !== 'doi' && t !== 'arxiv';
+          });
+          otherLinks.forEach(function (link) {
+            const chip = link.cloneNode(true);
+            chip.classList.add('paper-chip');
+            paperLinks.appendChild(chip);
+          });
 
           trigger = document.createElement('a');
           trigger.href = '#';
