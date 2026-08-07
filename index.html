@@ -399,6 +399,15 @@
   line-height: 1.3;
 }
 
+.paper-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.paper-title a:hover {
+  text-decoration: underline;
+}
+
 /* 元信息样式 */
 .paper-meta {
   font-size: 0.9rem;
@@ -514,10 +523,6 @@
 @media screen and (min-width: 981px) {
   .preprints-jump {
     display: none;
-  }
-  /* AI-repositories 跳转按钮：桌面端也显示（该区块在下方整行） */
-  .ai-jump {
-    display: inline-block;
   }
 }
 
@@ -769,7 +774,7 @@
           <div class="research-columns w3-margin-top-2">
             <!-- 左列：PUBLICATIONS 区块 -->
             <div class="research-section publications">
-              <h3 class="w3-border-amber">PUBLICATIONS <a href="javascript:void(0)" onclick="document.getElementById('preprints-target').scrollIntoView({behavior:'smooth'});return false;" class="preprints-jump">Preprints »</a></h3>
+              <h3 class="w3-border-amber">PUBLICATIONS <a href="javascript:void(0)" onclick="document.getElementById('preprints-target').scrollIntoView({behavior:'smooth'});return false;" class="preprints-jump">Preprints »</a> <a href="javascript:void(0)" onclick="document.getElementById('ai-repositories-target').scrollIntoView({behavior:'smooth'});return false;" class="preprints-jump">AI-repositories »</a></h3>
               <div class="papers-list">
                 <!-- 论文 1 -->
                 <div class="paper-item">
@@ -860,7 +865,7 @@
 
             <!-- 右列：PREPRINTS -->
             <div class="research-section preprints">
-              <h3 id="preprints-target">PREPRINTS <a href="javascript:void(0)" onclick="document.getElementById('ai-repositories-target').scrollIntoView({behavior:'smooth'});return false;" class="preprints-jump ai-jump">AI-repositories »</a></h3>
+              <h3 id="preprints-target">PREPRINTS</h3>
               <div class="papers-list">
                 <!-- Preprint 1 (new) -->
                 <div class="paper-item">
@@ -906,7 +911,7 @@
               <!-- AI Repository 1 -->
               <div class="paper-item">
                 <div class="paper-title">
-                  <b>Spell — An adversarial multi-agent prover</b>
+                  <b><a href="https://github.com/zhongganpage/Spell" target="_blank" rel="noopener">Spell — An adversarial multi-agent prover</a></b>
                 </div>
                 <div class="paper-meta">
                   GitHub: zhongganpage/Spell (public), MIT License
